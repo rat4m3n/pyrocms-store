@@ -163,4 +163,17 @@ class Admin extends Admin_Controller
 		
 		$this->template->build('admin/list_products', $this->data);
 	}
+	
+	public function list_categories()
+	{
+		$id = $this->store_settings->item('store_id');
+		$this->sql = $this->store_m->list_categories($id);
+
+		$this->data = array(
+			'sql'	=>	$this->sql
+		);
+		
+		$this->template->build('admin/list_categories', $this->data);
+	}
+	
 }

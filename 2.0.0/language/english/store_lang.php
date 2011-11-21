@@ -23,8 +23,9 @@ $lang['store_title_add_store']         				= 'Add Store';
 $lang['store_title_edit_store']         			= 'Edit Store';
 $lang['store_title_stats_store']         			= 'Store Statistics';
 $lang['store_title_add_category']         			= 'Store Add Category';
-$lang['store_title_list_category']         			= 'Store List Categories';
-$lang['store_title_list_products']         			= 'Store List Products';
+$lang['store_title_list_category']         			= 'List Categories';
+$lang['store_title_list_products']         			= 'List Products';
+
 
 
 // Tabs
@@ -165,3 +166,12 @@ $lang['store_product_list_thumbnail']				= 'Thumbnail';
 $lang['store_product_list_discount']				= 'Discount';
 $lang['store_product_list_actions']					= 'Actions';
 $lang['store_currently_no_products']				= 'Currently no products created';
+
+// List Categories
+$lang['store_categories_list_name']					= 'Name';
+$lang['store_categories_list_category_id']			= 'Category';
+$lang['store_categories_list_price']				= 'Price';
+$lang['store_categories_list_parent']				= 'Parent';
+$lang['store_categories_list_thumbnail']			= 'Thumbnail';
+$lang['store_categories_list_actions']				= 'Actions';
+$lang['store_currently_no_categories']				= 'Currently no products created';

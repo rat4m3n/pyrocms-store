@@ -53,9 +53,8 @@ class Store_m extends MY_Model {
      * @return array 
      */		
 	public function list_categories($id){  
-		$this->db->where(array('store_categories' => $id)); 
-		return $this->db->get($this->_table['store_categories'])
-					->row(); 
+		$this->query = $this->db->get('store_categories');
+		return $this->query;
 	}
 
     /**   
@@ -97,6 +96,19 @@ class Store_m extends MY_Model {
 		$this->db->where('status', 1); 
 		return $this->db->count_all_results('store_orders'); 
 	}
+    /**   
+	 * Get Category Name from product_id
+     * @param int $id
+     * @return string 
+     */		
+	public function get_category_name($categories_id){
+		$this->db->where('categories_id', $categories_id);
+		$this->query = $this->db->get('store_categories');
+		
+			return $this->query->row(); 
+	}	
+	
+	
 	
 	private function get_core_site_id($site_ref)
 	{
