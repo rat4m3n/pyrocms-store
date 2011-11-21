@@ -8,6 +8,8 @@
  * @subpackage 	Store Module
 **/
 ?>
+<h3><?php echo lang('store_title_list_products')?></h3>
+
 <?php if ($sql): ?>
 
 	<?php echo form_open('admin/store/list_products'); ?>
@@ -37,7 +39,7 @@
 					<td><?php echo form_checkbox('action_to[]', $this->product->products_id); ?></td>
 					<td><?php echo $this->product->thumbnail_id; ?></td>
 					<td><?php echo $this->product->name; ?></td>
-					<td><?php echo $this->product->categories_id; ?></td>
+					<td><?php echo $this->store_m->get_category_name($this->product->categories_id)->name; ?></td>
 					<td><?php echo $this->product->price; ?></td>
 					<td><?php echo $this->product->discount; ?></td>
 					<td class="align-center buttons buttons-small">
