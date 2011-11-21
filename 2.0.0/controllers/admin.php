@@ -9,6 +9,7 @@
 **/
 class Admin extends Admin_Controller
 {
+	protected $section = 'store';
 
 	public function __construct()
 	{

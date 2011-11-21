@@ -10,11 +10,12 @@
 ?>
 
 <?php if ($this->method == 'add_product'): ?>
-	<h3><?php echo lang('store_product_add_label');?></h3>
+<section class="title">
+	<h4><?php echo lang('store_product_add_label');?></h4>
+</section>
 <?php endif; ?>
 
-
-
+<section class="item">
 <?php echo form_open($this->uri->uri_string(), 'class="crud"'); ?>
 
 <div>
@@ -88,3 +89,4 @@
 </div>
 
 <?php echo form_close(); ?>
+</section>

@@ -8,8 +8,11 @@
  * @subpackage 	Store Module
 **/
 ?>
-<h3><?php echo lang('store_title_list_products')?></h3>
+<section class="title">
+	<h4><?php echo lang('store_title_list_products')?></h4>
+</section>
 
+<section class="item">
 <?php if ($sql): ?>
 
 	<?php echo form_open('admin/store/list_products'); ?>
@@ -63,3 +66,4 @@
 		<h2><?php echo lang('store_currently_no_products'); ?></h2>
 	</div>
 <?php endif; ?>
+</section>

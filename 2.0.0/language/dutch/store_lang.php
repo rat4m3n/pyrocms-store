@@ -9,33 +9,56 @@
 **/
 
 // Shortcuts
-$lang['store_shortcut_list_stores']			= 'Winkel Lijst';
-$lang['store_shortcut_add_store']			= 'Winkel Toevoegen';
+$lang['store_shortcut_list_stores']					= 'Winkel Lijst';
+$lang['store_shortcut_add_category']				= 'Categorie Toevoegen';
+$lang['store_shortcut_add_product']					= 'Product Toevoegen';
+$lang['store_shortcut_list_products']				= 'Producten Lijst';
+$lang['store_shortcut_list_categories']				= 'Categorieën Lijst';
 
 // Titles
-$lang['store_title_store']         			= 'Winkels';
-$lang['store_title_add_store']         		= 'Winkel Toevoegen';
-$lang['store_title_edit_store']         	= 'Winkel Bewerken';
+$lang['store_title_store']         					= 'Winkel';
+$lang['store_title_store_index']         			= 'Winkel Lijst';
+$lang['store_title_add_store']         				= 'Winkel Toevoegen';
+$lang['store_title_edit_store']         			= 'Winkel Bewerken';
+$lang['store_title_stats_store']         			= 'Winkel Statistieken';
+$lang['store_title_add_category']         			= 'Winkel Categorie Toevoegen';
+$lang['store_title_list_category']         			= 'Categorieën Lijst';
+$lang['store_title_list_products']         			= 'Producten Lijst';
 
 // Tabs
-$lang['store_tab_content']					= 'Winkel Inhoud';
-$lang['store_tab_additional_info']			= 'Extra Informatie';
+$lang['store_tab_config']							= 'Winkel Configuratie';
+$lang['store_tab_payment_gateways']					= 'Betalings Manieren';
+$lang['store_tab_additional_info']					= 'Extra Informatie';
 
 // Fields
-$lang['store_field_name']					= 'Winkel naam';
-$lang['store_field_email']					= 'Winkels standaard email';
-$lang['store_field_additional_emails']		= 'Extra emails (Separate with ",")';
-$lang['store_field_currency']				= 'Standaard valuta';
-$lang['store_field_item_per_page']			= 'Objecten per Pagina';
-$lang['store_field_show_with_tax']			= 'Toon BTW';
-$lang['store_field_display_stock']			= 'Toon voorraad';
-$lang['store_field_allow_comments']			= 'Commentaar Toestaan';
-$lang['store_field_new_order_mail_alert']	= 'Mail Alert bij een nieuwe bestelling';
-$lang['store_field_active']					= 'Is actief';
-$lang['store_field_is_default']				= 'Is standaard';
-$lang['store_field_agb']					= 'Algemene Voorwaarden';
-$lang['store_field_privacy_policy']			= 'Privacy Beleid';
-$lang['store_field_delivery_information']	= 'Bezorg Informatie';
+$lang['store_settings_name']						= 'Winkel naam';
+$lang['store_settings_email']						= 'Winkels standaard email adres';
+$lang['store_settings_additional_emails']			= 'Extra email addressen (Splitsen met ",")';
+$lang['store_settings_currency']					= 'Standaard valuta';
+$lang['store_settings_item_per_page']				= 'Items per Pagina';
+$lang['store_settings_show_with_tax']				= 'Toon BTW';
+$lang['store_settings_display_stock']				= 'Toon Voorraad';
+$lang['store_settings_allow_comments']				= 'Commentaar Toestaan';
+$lang['store_settings_new_order_mail_alert']		= 'Mail Alert bij nieuwe orders';
+$lang['store_settings_active']						= 'Is actief';
+$lang['store_settings_is_default']					= 'Is standaard';
+
+$lang['store_settings_paypal_enabled']				= 'Paypal actief';
+$lang['store_settings_paypal_account']				= 'Paypal Account';
+$lang['store_settings_paypal_developer_mode']		= 'Ontwikkelaars mode';
+
+$lang['store_settings_authorize_enabled']			= 'Authorize.net actief';
+$lang['store_settings_authorize_account']			= 'Authorize.net inloggen';
+$lang['store_settings_authorize_secret']			= 'Authorize.net geheim';
+$lang['store_settings_authorize_developer_mode']	= 'Ontwikkelaars mode';
+
+$lang['store_settings_twoco_enabled']				= '2Checkout actief';
+$lang['store_settings_twoco_account']				= '2Checkout Vender ID';
+$lang['store_settings_twoco_developer_mode']		= 'Ontwikkelaars mode';
+
+$lang['store_settings_terms_and_conditions']		= 'Winkel AGB';
+$lang['store_settings_privacy_policy']				= 'Winkel Privacybeleid';
+$lang['store_settings_delivery_information']		= 'Winkel leverings Informatie';
 
 // Radios
 $lang['store_radio_yes']					= ' Ja ';

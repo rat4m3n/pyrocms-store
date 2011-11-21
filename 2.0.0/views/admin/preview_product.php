@@ -8,10 +8,14 @@
  * @subpackage 	Store Module
 **/
 ?>
-<h1>Hello<?php echo $this->product->name; ?></h1>
+<section class="title">
+	<h4><?php echo $this->product->name; ?></h4>
+</section>
 
+<section class="item">
 <p style="float:left; width: 40%;">
 	<?php echo anchor('store/product/' .$this->product->products_id .'/'. , NULL, 'target="_blank"'); ?>
 </p>
 
 <iframe src="<?php echo site_url('store/product/' .$this->product->products_id; ?>" width="99%" height="400"></iframe>
+</section>

@@ -24,9 +24,50 @@ class Module_Store extends Module {
 				'nl' => 'Dit is een webwinkel module voor PyroCMS',
 				'de' => 'Dies ist ein Online-Shop fur PyroCMS'
 			),
-			'frontend' => TRUE,
-			'backend' => TRUE,
-			'menu' => 'content'
+			'frontend'	=> TRUE,
+			'backend'	=> TRUE,
+			'skip_xss'	=> TRUE,
+			'menu'		=> 'content',
+		
+			'roles'		=> array(
+				'admin_module'
+			),
+			
+			'sections' => array(
+			    'store' => array(
+				    'name'		=> 'store_menu_store',
+				    'uri'		=> 'admin/store',
+				    'shortcuts'	=> array(
+						array(
+					 	   'name'	=> 'blog_create_title',
+						    'uri'	=> 'admin/blog/create',
+						    'class'	=> 'add'
+						),
+					),
+				),
+			    'categories' => array(
+				    'name'		=> 'store_menu_categories',
+				    'uri'		=> 'admin/store/categories',
+				    'shortcuts'	=> array(
+						array(
+					 	   'name'	=> 'store_shortcut_add_category',
+						    'uri'	=> 'admin/store/categories/add',
+						    'class'	=> 'add'
+						),
+					),
+				),
+			    'products' => array(
+				    'name'		=> 'store_menu_products',
+				    'uri'		=> 'admin/store/products',
+				    'shortcuts'	=> array(
+						array(
+					 	   'name'	=> 'store_shortcut_add_product',
+						    'uri'	=> 'admin/store/products/add',
+						    'class'	=> 'add'
+						),
+					),
+				),
+			),
 		);
 	}
 
