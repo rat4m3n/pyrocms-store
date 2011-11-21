@@ -36,14 +36,7 @@ class Module_Store extends Module {
 			'sections' => array(
 			    'store' => array(
 				    'name'		=> 'store_menu_store',
-				    'uri'		=> 'admin/store',
-				    'shortcuts'	=> array(
-						array(
-					 	   'name'	=> 'blog_create_title',
-						    'uri'	=> 'admin/blog/create',
-						    'class'	=> 'add'
-						),
-					),
+				    'uri'		=> 'admin/store'
 				),
 			    'categories' => array(
 				    'name'		=> 'store_menu_categories',
