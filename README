@@ -1,0 +1,23 @@
+<h1>pyrocms-store</h1>
+
+WARNING - THIS IS STILL A DEVELOPMENT VERSION AND NOT CURRENTLY WORKING.
+
+<h2>Description</h2>
+Welcome this is a Store or Webshop for pyrocms.
+its currrently in development and we hope to have a working version near the beginning or end of december.
+if you have any questions don't hesitate to ask them.
+
+greetings the pyrocms-store team
+
+<h2>Installing</h2>
+
+Just unzip the folder in the pyrocms/addons folder or use the upload function as always.
+
+<h2>Uninstalling</h2>
+
+use the uninstall button in the addons manager.
+
+<h2>Changelog</h2>
+
+26-11-2011
+Added more info on the project
