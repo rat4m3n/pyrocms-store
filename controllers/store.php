@@ -16,7 +16,12 @@ class Store extends Public_Controller
 
 		// Load the required classes
 		$this->load->library('cart');
+		
+		// load required models
 		$this->load->model('store_m');
+		$this->load->model('categories_m');		
+		$this->load->model('products_m');
+
 		$this->load->language('store');
 		$this->load->library('store_settings');
 		$this->load->helper('date');
@@ -25,33 +30,24 @@ class Store extends Public_Controller
 						->append_metadata(js('store.js', 'store'));
 	}
 
+	// display the categories of the store
 	public function index(){
-		$this->sql = $this->store_m->get_categories();
-
-		$this->data = array(
-			'sql'	=>	$this->sql
-		);
-		
+		$categories = $this->categories_m->get_all();
+		$this->data = array( 'categories' =>	$categories );
 		$this->template->build('index', $this->data);
 	}
 	
-	public function category($category){
-		$this->sql = $this->store_m->get_products($category);
-
-		$this->data = array(
-			'sql'	=>	$this->sql
-		);
-		
+	// display the products associated with the category id
+	public function category($categories_id){
+		$products = $this->products_m->get_products($categories_id);
+		$this->data = array( 'products'	=>	$products );
 		$this->template->build('category', $this->data);
 	}
 	
-	public function product($product){
-		$this->sql = $this->store_m->get_product($product);
-
-		$this->data = array(
-			'sql'	=>	$this->sql
-		);
-		
+	// display specific product given by $products_id
+	public function product($products_id){
+		$product = $this->products_m->get_product($products_id);
+		$this->data = array( 'product' =>	$product );
 		$this->template->build('product', $this->data);
 	}
 	

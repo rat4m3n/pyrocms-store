@@ -13,7 +13,7 @@
 </section>
 
 <section class="item">
-<?php if ($sql): ?>
+<?php if ($products): ?>
 
 	<?php echo form_open('admin/store/list_products'); ?>
 
@@ -37,18 +37,18 @@
 			</tr>
 		</tfoot>
 		<tbody>
-			<?php foreach($sql->result() as $this->product) { ?>
+			<?php foreach($products as $product) { ?>
 				<tr>
-					<td><?php echo form_checkbox('action_to[]', $this->product->products_id); ?></td>
-					<td><?php echo $this->product->thumbnail_id; ?></td>
-					<td><?php echo $this->product->name; ?></td>
-					<td><?php echo $this->store_m->get_category_name($this->product->categories_id)->name; ?></td>
-					<td><?php echo $this->product->price; ?></td>
-					<td><?php echo $this->product->discount; ?></td>
+					<td><?php echo form_checkbox('action_to[]', $product->products_id); ?></td>
+					<td><?php echo $product->thumbnail_id; ?></td>
+					<td><?php echo $product->name; ?></td>
+					<td><?php echo $this->store_m->get_category_name($product->categories_id)->name; ?></td>
+					<td><?php echo $product->price; ?></td>
+					<td><?php echo $product->discount; ?></td>
 					<td class="align-center buttons buttons-small">
-						<?php echo anchor('admin/store/preview_product/' . $this->product->products_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
-						<?php echo anchor('admin/store/edit_product/' . $this->product->products_id, lang('store_button_edit'), 'class="button edit"'); ?>
-						<?php echo anchor('admin/store/delete_product/' . $this->product->products_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
+						<?php echo anchor('admin/store/preview_product/' . $product->products_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+						<?php echo anchor('admin/store/edit_product/' . $product->products_id, lang('store_button_edit'), 'class="button edit"'); ?>
+						<?php echo anchor('admin/store/delete_product/' . $product->products_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
 					</td>
 				</tr>
 			<?php } ?>
