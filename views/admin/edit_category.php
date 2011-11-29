@@ -6,12 +6,16 @@
  * @website		http://jolman.eu
  * @package 	PyroCMS
  * @subpackage 	Store Module
+ *
+ * added and modified by Rudolph Arthur Hernandez - 11/27/2011
 **/
 ?>
 
-    <section class="title">
-        <h4><?php echo lang('store_cat_add_label');?></h4>
-    </section>
+
+ <section class="title">
+     <h4><?php echo lang('store_cat_edit_label');?></h4>
+ </section>
+
 
 <section class="item">
 	<?php echo form_open($this->uri->uri_string(), 'class="crud"'); ?>
@@ -19,12 +23,12 @@
 		<ol>
 			<li class="<?php echo alternator('even', ''); ?>">
 				<?php echo lang('store_cat_add_name','name'); ?>
-				<?php echo form_input('name',set_value('name',''),'class="text" maxlength="50"'); ?>
+				<?php echo form_input('name',set_value('name',$category->name),'class="text" maxlength="50"'); ?>
 				<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_html','html'); ?>
-                <?php echo form_textarea('html',set_value('html',''),'class="wysiwyg-simple" maxlength="1000"'); ?>
+                <?php echo form_textarea('html',set_value('html',$category->html),'class="wysiwyg-simple" maxlength="1000"'); ?>
                 <span class="required-icon tooltip"><?php echo lang('required_label');?></span>
             </li>
             
@@ -35,12 +39,12 @@
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_images_id','images_id'); ?>
-                <?php echo form_input('images_id',set_value('images_id',''),'class="text" maxlength="10"'); ?>
+                <?php echo form_input('images_id',set_value('images_id', $category->images_id),'class="text" maxlength="10"'); ?>
                 
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_thumbnail','thumbnail_id'); ?>
-                <?php echo form_input('thumbnail_id',set_value('thumbnail_id',''),'class="text" maxlength="10"'); ?>
+                <?php echo form_input('thumbnail_id', set_value('thumbnail_id', $category->thumbnail_id),'class="text" maxlength="10"'); ?>
                 
             </li>
         </ol>

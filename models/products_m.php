@@ -6,216 +6,103 @@
  * @website		http://jolman.eu
  * @package 	PyroCMS
  * @subpackage 	Store Module
+ * 
+ * Modified by : Rudolph Arthur Hernandez (11/27/2011)
 **/
-class Store_m extends MY_Model {
+
+class Products_m extends MY_Model {
+
+	protected $_table		=	'store_products';
 
 	public function __construct()
 	{		
 		parent::__construct();
-
-		$this->_table = array(
-			'store_config'					=> 'store_config',
-			'store_categories'				=> 'store_categories',
-			'store_products'				=> 'store_products',
-			'store_tags'					=> 'store_tags',
-			'store_products_has_store_tags'	=> 'store_products_has_store_tags',
-			'store_attributes'				=> 'store_attributes',
-			'store_orders'					=> 'store_orders',
-			'store_users_adresses'			=> 'store_users_adresses',
-			'store_order_adresses'			=> 'store_order_adresses',
-			'core_sites'					=> 'core_sites',
-			'core_stores'					=> 'core_stores'
-		);
+		$this->load->library('store_settings');
+		$this->_store = $this->store_settings->item('store_id');		
 	}
 
-    /**  
-	 * Get a specific Store
-     * @param int $id
-     * @return array 
-     */	
-	public function get_store() {
-		return $this->db->get($this->_table['store_config'])
-					->row();	
-	}
-
-    /**
-	 * Get all available Stores
-     * @return array
-     */
-	public function get_store_all() {
-		return $this->db->get('store_config')
-					->result();
-    }	
-
-    /**  
-	 * Get all categories of a Store
-     * @param int $id
-     * @return array 
-     */		
-	public function list_categories($id){  
-		$this->query = $this->db->get('store_categories');
-		return $this->query;
-	}
-
-    /**   
-	 * Get all products of a Store
-     * @param int $id
-     * @return array 
-     */		
-	public function list_products($id){  
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-
-    /**   
-	 * Get number of products in a Store
-     * @param int $id
-     * @return string 
-     */		
-	public function count_products(){
-		//$this->db->where('store_store_id', $this->site->id); //Show only from one Store
-		return $this->db->count_all_results('store_products'); 
-	}
-
-    /**   
-	 * Get number of categories in a Store
-     * @param int $id
-     * @return string 
-     */		
-	public function count_categories(){
-		//$this->db->where('store_store_id', $this->site->id); //Show only from one Store
-		return $this->db->count_all_results('store_categories'); 
-	}
-
-    /**   
-	 * Get number of pending orders in a store
-     * @param int $id
-     * @return string 
-     */		
-	public function count_pending_orders(){
-		$this->db->where('status', 1); 
-		return $this->db->count_all_results('store_orders'); 
-	}
-    /**   
-	 * Get Category Name from product_id
-     * @param int $id
-     * @return string 
-     */		
-	public function get_category_name($categories_id){
-		$this->db->where('categories_id', $categories_id);
-		$this->query = $this->db->get('store_categories');
-		
-			return $this->query->row(); 
-	}	
+	// get_all(), count_all(), inherited from MY_Model when $_table is set	
 	
-	
-	
-	private function get_core_site_id($site_ref)
+	public function update_product($products_id)
 	{
-		$this->query = $this->db->query("SELECT * FROM " . $this->_table['core_sites']. " WHERE ref='" . $site_ref . "';");
-		foreach($this->query->result() as $this->item)
-		{
-			return $this->item->id;
-		}
+		$this->data = $this->input->post();// get all post fields
+		array_pop($this->data);// remove the submit button field
+		$this->db->where('products_id', $products_id);
+		return $this->db->update($this->_table, $this->data);		
 	}
-	
-	public function add_category()
-	{	
-		$id = $this->store_settings->item('store_id');
-		$this->data = array(
-	        'name'					=>	$this->input->post('name'),
-			'html'					=>	$this->input->post('html'),
-			'parent_id'				=>	$this->input->post('parent_id'),
-			'images_id'				=>	$this->input->post('images_id'),
-			'thumbnail_id'			=>	$this->input->post('thumbnail_id')
-	    );
-		$this->db->where('store_categories',$id);
-		return $this->db->insert($this->_table['store_categories'],$this->data);
-	}	
-	
 	
 	public function add_product()
 	{
-		$id = $this->store_settings->item('store_id');
-		$this->data = array(
-	       	'categories_id'				=>	$this->input->post('categories_id'),
-			'attributes_id'				=>	$this->input->post('attributes_id'),
-			'name'						=>	$this->input->post('name'),
-			'meta_description'			=>	$this->input->post('meta_description'),
-			'meta_keywords'				=>	$this->input->post('meta_keywords'),
-			'html'						=>	$this->input->post('html'),
-			'price'						=>	$this->input->post('price'),
-			'stock'						=>	$this->input->post('stock'),
-			'limited'					=>	$this->input->post('limited'),
-			'limited_used'				=>	$this->input->post('limited_used'),
-			'discount'					=>	$this->input->post('discount'),
-			'images_id'					=>	$this->input->post('images_id'),
-			'thumbnail_id'				=>	$this->input->post('thumbnail_id'),
-			'allow_comments'			=>	$this->input->post('allow_comments')
-			
-	    );
-		$this->db->where('store_products',$id);
-		return $this->db->insert($this->_table['store_products'],$this->data);
-	}
-	
-	public function make_categories_dropdown()
-        {
-            $query = $this->db->get('store_categories');
-            if ($query->num_rows() == 0)
-            {
-                return array();
-            }
-            else
-            {
-
-                $data  = array('0'=>'Select');
-                foreach($query->result() as $row)
-                {
-
-                    $data[$row->categories_id] = $row->name;
-
-                }
-
-                return $data;
-            }
-
-        }	
-	
-	public function get_categories()
-	{
-		$this->query = $this->db->get('store_categories');
-		return $this->query;
-	}
-	
-	public function get_products($category)
-	{
-		$this->db->where('categories_id',$category);
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-	
-	public function get_product($product)
-	{
-		$this->db->where('products_id',$product);
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-	
-	public function get_product_in_cart($product)
-	{
-		$this->db->where('products_id',$product);
-		$this->query = $this->db->get('store_products');
-		foreach($this->query->result() as $this->product)
-		{
-			$this->items = array(
-				'id'      => $this->product->products_id,
-				'qty'     => $this->input->post('qty'),
-				'price'   => $this->product->price,
-				'name'    => $this->product->name,
-				'options' => $this->get_product_attributes($this->product->attributes_id)
-			);
-			return $this->items;
+		$this->data = $this->input->post();// get all post fields
+		array_pop($this->data);// remove the submit button field
+		if ($this->db->insert($this->_table, $this->data)){
+			return $this->db->insert_id();
 		}
+		else return false;
+	}
+	
+	public function delete_product($products_id){
+		return $this->db->where('products_id', $products_id)->delete($this->_table);
+	}	
+	
+	
+	/**
+	 * Make categories dropdown for products pages, specified by an ID.
+	 *
+	 * @param integer $selected_id
+	 * @return array $data of category objects
+	 * @author Rudolph Arthur Hernandez
+	 */
+	public function make_categories_dropdown($selected_id=0){
+      
+      $this->load->model('categories_m');
+      $categories = $this->db->get('store_categories');
+      if($selected_id) { $selected_cat = $this->categories_m->get($selected_id); }
+      
+      if ($categories->num_rows() == 0) { return array(); }
+      else {
+      	if(isset($selected_cat)){ $data  = array( $selected_cat->categories_id => $selected_cat->name); }
+      	else { $data  = array('0'=>'Select'); }
+      	
+      	// now go through the rest, excluding the selected cat (if any)
+         foreach($categories->result() as $category){
+         	if(isset($selected_cat)){
+         		if(! ($selected_cat->name == $category->name) ){
+             		$data[$category->categories_id] = $category->name;
+             	}
+            }
+            else { $data[$category->categories_id] = $category->name; }
+         }
+         return $data;      	 	
+      }
+   }	
+	
+	
+	public function get_products($categories_id)
+	{
+		return $this->db->where('categories_id', $categories_id)->get($this->_table)->result();
+	}
+	
+	public function get_product($products_id)
+	{
+		return $this->db->where('products_id', $products_id)->limit(1)->get($this->_table)->row();
+	}
+	
+	public function get_product_in_cart($products_id)
+	{
+		$product = $this->db->where('products_id', $products_id)
+								  ->limit(1)								  
+								  ->get('store_products')->row();
+								  
+		$this->items = array(
+				'id'      => $product->products_id,
+				'qty'     => $this->input->post('qty'),
+				'price'   => $product->price,
+				'name'    => $product->name,
+				'options' => $this->get_product_attributes($product->attributes_id)
+		);
+		return $this->items;
+		
 	}
 	
 	public function get_product_attributes($attributes)

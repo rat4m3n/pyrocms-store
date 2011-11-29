@@ -14,7 +14,7 @@
 
 <section class="item">
 	
-	<?php if ($sql): ?>
+	<?php if ($categories): ?>
 
 		<?php echo form_open('admin/store/list_categories'); ?>
     
@@ -37,17 +37,17 @@
                 </tr>
             </tfoot>
             <tbody>
-                <?php foreach($sql->result() as $this->category) { ?>
+                <?php foreach($categories as $category) { ?>
                     <tr>
-                        <td><?php echo form_checkbox('action_to[]', $this->category->categories_id); ?></td>
-                        <td><?php echo $this->category->thumbnail_id; ?></td>
-                        <td><?php echo $this->category->name; ?></td>
-                        <td><?php echo $this->category->categories_id; ?></td>
-                        <td><?php echo $this->category->parent_id; ?></td>
+                        <td><?php echo form_checkbox('action_to[]', $category->categories_id); ?></td>
+                        <td><?php echo $category->thumbnail_id; ?></td>
+                        <td><?php echo $category->name; ?></td>
+                        <td><?php echo $category->categories_id; ?></td>
+                        <td><?php echo $category->parent_id; ?></td>
                         <td class="align-center buttons buttons-small">
-                            <?php echo anchor('admin/store/preview_product/' . $this->category->categories_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
-                            <?php echo anchor('admin/store/edit_product/' . $this->category->categories_id, lang('store_button_edit'), 'class="button edit"'); ?>
-                            <?php echo anchor('admin/store/delete_product/' . $this->category->categories_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
+                            <?php echo anchor('admin/store/preview_category/' . $category->categories_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+                            <?php echo anchor('admin/store/edit_category/' . $category->categories_id, lang('store_button_edit'), 'class="button edit"'); ?>
+                            <?php echo anchor('admin/store/delete_category/' . $category->categories_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
                         </td>
                     </tr>
                 <?php } ?>

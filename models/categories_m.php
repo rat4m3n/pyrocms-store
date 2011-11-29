@@ -15,31 +15,70 @@ class Categories_m extends MY_Model {
 
 	public function __construct()
 	{		
-		parent::__construct();
-		
+		parent::__construct();		
 		$this->load->library('store_settings');
 		$this->_store = $this->store_settings->item('store_id');
 	}
 	
-	public function make_categories_dropdown()
+	// get_all(), count_all(), inherited from MY_Model when $_table is set	
+	
+	
+	
+	public function make_categories_dropdown($categories_id=0)
 	{
-		$this->query = $this->db->get('store_categories');
-		if ($this->query->num_rows() == 0):
-
+		$categories = $this->db->get('store_categories');
+		$selected_cat; $parent_cat;
+		
+		if($categories_id) { 
+			$selected_cat = $this->categories_m->get($categories_id);
+			$parent_cat = $this->categories_m->get($selected_cat->parent_id);
+		} 
+		
+		if ($categories->num_rows() == 0):
 			return array();
-
 		else:
-
-			$this->data  = array('0'=>'Select');
-			foreach($this->query->result() as $this->row):
-
-				$this->data[$this->row->categories_id] = $this->row->name;
-
-			endforeach;
-
-			return $this->data;
+			if(isset($parent_cat) && $parent_cat ){  // if there is a parent category
+				// set that as the first in the dropdown
+				$this->data = array( $parent_cat->categories_id => $parent_cat->name); 
+				
+				foreach($categories->result() as $category):
+					if( ! ( $parent_cat->name == $category->name || $selected_cat->name == $category->name ) ){
+						$this->data[$category->categories_id] = $category->name;
+					}
+				endforeach;	
 			
-		endif;
+				return $this->data;
+			}
+			else {
+				$this->data  = array('0'=>'Select');
+				foreach($categories->result() as $category):
+					if(isset($selected_cat)){
+						if( ! ($category->name == $selected_cat->name) ){
+							$this->data[$category->categories_id] = $category->name;
+						}
+					}
+					else { 
+						$this->data[$category->categories_id] = $category->name;
+					}
+				endforeach;
 
+				return $this->data;				
+			}
+		endif;
 	}
+	
+	
+	public function add_category()
+	{	
+		$this->data = $this->input->post();// get all post fields
+		array_pop($this->data);// remove the submit button field
+		if ($this->db->insert($this->_table, $this->data)){ 
+			return $this->db->insert_id(); 
+		}
+		else { return false; } 
+	}
+	
+	
+	
+	
 }

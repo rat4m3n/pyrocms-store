@@ -34,8 +34,7 @@ class Store_m extends MY_Model {
      * @return array 
      */	
 	public function get_store() {
-		return $this->db->get($this->_table['store_config'])
-					->row();	
+		return $this->db->get($this->_table['store_config'])->row();	
 	}
 
     /**
@@ -43,49 +42,10 @@ class Store_m extends MY_Model {
      * @return array
      */
 	public function get_store_all() {
-		return $this->db->get('store_config')
-					->result();
+		return $this->db->get('store_config')->result();
     }	
 
-    /**  
-	 * Get all categories of a Store
-     * @param int $id
-     * @return array 
-     */		
-	public function list_categories($id){  
-		$this->query = $this->db->get('store_categories');
-		return $this->query;
-	}
 
-    /**   
-	 * Get all products of a Store
-     * @param int $id
-     * @return array 
-     */		
-	public function list_products($id){  
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-
-    /**   
-	 * Get number of products in a Store
-     * @param int $id
-     * @return string 
-     */		
-	public function count_products(){
-		//$this->db->where('store_store_id', $this->site->id); //Show only from one Store
-		return $this->db->count_all_results('store_products'); 
-	}
-
-    /**   
-	 * Get number of categories in a Store
-     * @param int $id
-     * @return string 
-     */		
-	public function count_categories(){
-		//$this->db->where('store_store_id', $this->site->id); //Show only from one Store
-		return $this->db->count_all_results('store_categories'); 
-	}
 
     /**   
 	 * Get number of pending orders in a store
@@ -102,10 +62,10 @@ class Store_m extends MY_Model {
      * @return string 
      */		
 	public function get_category_name($categories_id){
-		$this->db->where('categories_id', $categories_id);
-		$this->query = $this->db->get('store_categories');
-		
-			return $this->query->row(); 
+		return $this->db->where('categories_id', $categories_id)
+							 ->limit(1)
+							 ->get('store_categories')
+							 ->row();
 	}	
 	
 	
@@ -119,124 +79,7 @@ class Store_m extends MY_Model {
 		}
 	}
 	
-	public function add_category()
-	{	
-		$id = $this->store_settings->item('store_id');
-		$this->data = array(
-	        'name'					=>	$this->input->post('name'),
-			'html'					=>	$this->input->post('html'),
-			'parent_id'				=>	$this->input->post('parent_id'),
-			'images_id'				=>	$this->input->post('images_id'),
-			'thumbnail_id'			=>	$this->input->post('thumbnail_id')
-	    );
-		$this->db->where('store_categories',$id);
-		return $this->db->insert($this->_table['store_categories'],$this->data);
-	}	
-	
-	
-	public function add_product()
-	{
-		$id = $this->store_settings->item('store_id');
-		$this->data = array(
-	       	'categories_id'				=>	$this->input->post('categories_id'),
-			'attributes_id'				=>	$this->input->post('attributes_id'),
-			'name'						=>	$this->input->post('name'),
-			'meta_description'			=>	$this->input->post('meta_description'),
-			'meta_keywords'				=>	$this->input->post('meta_keywords'),
-			'html'						=>	$this->input->post('html'),
-			'price'						=>	$this->input->post('price'),
-			'stock'						=>	$this->input->post('stock'),
-			'limited'					=>	$this->input->post('limited'),
-			'limited_used'				=>	$this->input->post('limited_used'),
-			'discount'					=>	$this->input->post('discount'),
-			'images_id'					=>	$this->input->post('images_id'),
-			'thumbnail_id'				=>	$this->input->post('thumbnail_id'),
-			'allow_comments'			=>	$this->input->post('allow_comments')
-			
-	    );
-		$this->db->where('store_products',$id);
-		return $this->db->insert($this->_table['store_products'],$this->data);
-	}
-	
-	public function make_categories_dropdown()
-        {
-            $query = $this->db->get('store_categories');
-            if ($query->num_rows() == 0)
-            {
-                return array();
-            }
-            else
-            {
 
-                $data  = array('0'=>'Select');
-                foreach($query->result() as $row)
-                {
-
-                    $data[$row->categories_id] = $row->name;
-
-                }
-
-                return $data;
-            }
-
-        }	
-	
-	public function get_categories()
-	{
-		$this->query = $this->db->get('store_categories');
-		return $this->query;
-	}
-	
-	public function get_products($category)
-	{
-		$this->db->where('categories_id',$category);
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-	
-	public function get_product($product)
-	{
-		$this->db->where('products_id',$product);
-		$this->query = $this->db->get('store_products');
-		return $this->query;
-	}
-	
-	public function get_product_in_cart($product)
-	{
-		$this->db->where('products_id',$product);
-		$this->query = $this->db->get('store_products');
-		foreach($this->query->result() as $this->product)
-		{
-			$this->items = array(
-				'id'      => $this->product->products_id,
-				'qty'     => $this->input->post('qty'),
-				'price'   => $this->product->price,
-				'name'    => $this->product->name,
-				'options' => $this->get_product_attributes($this->product->attributes_id)
-			);
-			return $this->items;
-		}
-	}
-	
-	public function get_product_attributes($attributes)
-	{
-		$this->db->where('attributes_id',$attributes);
-		$this->query = $this->db->get('store_attributes');
-		
-		foreach($this->query->result() as $this->attribute)
-		{
-			$this->result = array();
-			$this->items = explode("|", $this->attribute->html);
-			
-			foreach($this->items as $this->item)
-			{
-				$this->temp = explode("=", $this->item);
-				$this->result[$this->temp[0]] = $this->temp[1];
-			}
-			
-			return $this->result;
-		}
-	}
 	
 	public function build_order()
 	{

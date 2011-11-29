@@ -30,51 +30,51 @@
 		<fieldset>
 	
 		<ul>
-            <?php foreach($this->store_settings->settings_manager_retrieve('general')->result() as $this->setting) { ?>
-            <?php switch($this->setting->type) { case 'text': ?>
+      	<?php foreach($general_settings as $setting) { ?>
+            <?php switch($setting->type) { case 'text': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_input($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'class="text"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_input($setting->slug,set_value($setting->slug,$setting->value),'class="text"'); ?></div>				
                 </li>
                 
 			<?php break; case 'dropdown': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_dropdown($this->setting->slug,$this->store_settings->generate_dropdown($this->setting->slug), set_value($this->setting->slug,$this->setting->value),'class="dropdown"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_dropdown($setting->slug,$this->store_settings->generate_dropdown($setting->slug), set_value($setting->slug,$setting->value),'class="dropdown"'); ?></div>				
 				</li>
 			<?php break; case 'radio': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_radio($this->setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($this->setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_radio($setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
 				</li>
 			<?php break; case 'checkbox': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_checkbox($this->setting->slug,'1',TRUE); } else { echo form_checkbox($this->setting->slug,'0',TRUE); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_checkbox($setting->slug,'1',TRUE); } else { echo form_checkbox($setting->slug,'0',TRUE); } ?></div>				
 				</li>
 			<?php break; case 'textarea': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|simple': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|advanced': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
 				</li>
                     
 			<?php break; } } ?>
@@ -90,51 +90,51 @@
 		<fieldset>
 	
 		<ul>
-            <?php foreach($this->store_settings->settings_manager_retrieve('payment-gateways')->result() as $this->setting) { ?>
-            <?php switch($this->setting->type) { case 'text': ?>
+            <?php foreach($payment_gateways_settings as $setting) { ?>
+            <?php switch($setting->type) { case 'text': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_input($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'class="text"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_input($setting->slug,set_value($setting->slug,$setting->value),'class="text"'); ?></div>				
                 </li>
                 
 			<?php break; case 'dropdown': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_dropdown($this->setting->slug,$this->store_settings->generate_dropdown($this->setting->slug), set_value($this->setting->slug,$this->setting->value),'class="dropdown"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_dropdown($setting->slug,$this->store_settings->generate_dropdown($setting->slug), set_value($setting->slug,$setting->value),'class="dropdown"'); ?></div>				
 				</li>
 			<?php break; case 'radio': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_radio($this->setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($this->setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_radio($setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
 				</li>
 			<?php break; case 'checkbox': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_checkbox($this->setting->slug,'1',TRUE); } else { echo form_checkbox($this->setting->slug,'0',TRUE); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_checkbox($setting->slug,'1',TRUE); } else { echo form_checkbox($setting->slug,'0',TRUE); } ?></div>				
 				</li>
 			<?php break; case 'textarea': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|simple': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|advanced': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
 				</li>
                     
 			<?php break; } } ?>
@@ -150,51 +150,51 @@
 		<fieldset>
 	
 		<ul>
-            <?php foreach($this->store_settings->settings_manager_retrieve('extra')->result() as $this->setting) { ?>
-            <?php switch($this->setting->type) { case 'text': ?>
+            <?php foreach($extra_settings as $setting) { ?>
+            <?php switch($setting->type) { case 'text': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_input($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'class="text"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_input($setting->slug,set_value($setting->slug,$setting->value),'class="text"'); ?></div>				
                 </li>
                 
 			<?php break; case 'dropdown': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_dropdown($this->setting->slug,$this->store_settings->generate_dropdown($this->setting->slug), set_value($this->setting->slug,$this->setting->value),'class="dropdown"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_dropdown($setting->slug,$this->store_settings->generate_dropdown($setting->slug), set_value($setting->slug,$setting->value),'class="dropdown"'); ?></div>				
 				</li>
 			<?php break; case 'radio': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_radio($this->setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($this->setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($this->setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_radio($setting->slug,'1',TRUE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',FALSE).$this->lang->line('store_radio_no'); } else { echo form_radio($setting->slug,'1',FALSE).$this->lang->line('store_radio_yes'); echo form_radio($setting->slug,'0',TRUE).$this->lang->line('store_radio_no'); } ?></div>				
 				</li>
 			<?php break; case 'checkbox': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php if($this->setting->value == 1) { echo form_checkbox($this->setting->slug,'1',TRUE); } else { echo form_checkbox($this->setting->slug,'0',TRUE); } ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php if($setting->value == 1) { echo form_checkbox($setting->slug,'1',TRUE); } else { echo form_checkbox($setting->slug,'0',TRUE); } ?></div>				
 				</li>
 			<?php break; case 'textarea': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|simple': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-simple"'); ?></div>				
 				</li>
                 
 			<?php break; case 'wysiwyg|advanced': ?>
                      
                 <li class="<?php echo alternator('even', ''); ?>">
-                    <label for="title"><?php echo lang('store_settings_'.$this->setting->slug,$this->setting->slug); ?> <span>*</span></label>
-                    <div class="input"><?php echo form_textarea($this->setting->slug,set_value($this->setting->slug,$this->setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
+                    <label for="title"><?php echo lang('store_settings_'.$setting->slug,$setting->slug); ?> <span>*</span></label>
+                    <div class="input"><?php echo form_textarea($setting->slug,set_value($setting->slug,$setting->value),'rows="7" class="wysiwyg-advanced"'); ?></div>				
 				</li>
                     
 			<?php break; } } ?>

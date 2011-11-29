@@ -10,13 +10,15 @@
 ?>
 <div id="categories">
 	<ul>
-		<?php foreach($sql->result() as $this->categories) { ?>
+		<?php foreach($categories as $category) { ?>
 		<li>
 			<div>
-				<a href="<?php echo site_url(); ?>store/category/<?php echo $this->categories->categories_id; ?>/" title="<?php echo $this->categories->name; ?>"><?php echo $this->categories->name; ?></a>
+				<a href="<?php echo site_url(); ?>store/category/<?php echo $category->categories_id; ?>/" 
+					title="<?php echo $category->name; ?>"><?php echo $category->name; ?>
+				</a>
 			</div>
 			<div>
-				<img src="" alt="<?php echo $this->categories->name; ?>" />
+				<img src="" alt="<?php echo $category->name; ?>" />
 			</div>
 		</li>
 		<?php } ?>

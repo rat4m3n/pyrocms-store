@@ -161,6 +161,11 @@ $lang['store_product_add_thumbnail']				= 'Thumbnail';
 $lang['store_product_add_store_id']					= 'Store ID';
 $lang['store_product_add_allow_comments']			= 'Allow Comments';
 
+
+$lang['store_product_edit_label']			= 'Edit Product';// Edit Product
+$lang['store_cat_edit_label'] 				= 'Edit Category';// Edit Category
+
+
 // List Products
 $lang['store_product_list_name']					= 'Name';
 $lang['store_product_list_category_id']				= 'Category';
