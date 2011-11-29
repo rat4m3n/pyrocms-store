@@ -22,14 +22,18 @@ $lang['store_shortcut_list_products']				= 'List Products';
 $lang['store_shortcut_list_categories']				= 'List Categories';
 
 // Titles
-$lang['store_title_store']         					= 'Store';
-$lang['store_title_store_index']         			= 'Store Index';
-$lang['store_title_add_store']         				= 'Add Store';
-$lang['store_title_edit_store']         			= 'Edit Store';
-$lang['store_title_stats_store']         			= 'Store Statistics';
-$lang['store_title_add_category']         			= 'Store Add Category';
-$lang['store_title_list_category']         			= 'List Categories';
-$lang['store_title_list_products']         			= 'List Products';
+$lang['store_title_store']         			= 'Store';
+$lang['store_title_store_index']         	= 'Store Index';
+$lang['store_title_add_store']         	= 'Add Store';
+$lang['store_title_edit_store']         	= 'Edit Store';
+$lang['store_title_stats_store']         	= 'Store Statistics';
+$lang['store_title_add_category']         = 'Store : Add Category';
+$lang['store_title_add_product']				= 'Store : Add Product';
+$lang['store_title_edit_product']			= 'Edit Product';
+$lang['store_title_edit_category'] 			= 'Edit Category';
+$lang['store_title_list_category']        = 'List Categories';
+$lang['store_title_list_products']        = 'List Products';
+
 
 // Tabs
 $lang['store_tab_config']							= 'Store Config';

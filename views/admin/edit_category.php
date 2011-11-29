@@ -13,7 +13,7 @@
 
 
  <section class="title">
-     <h4><?php echo lang('store_cat_edit_label');?></h4>
+     <h4><?php echo lang('store_title_edit_category');?></h4>
  </section>
 
 

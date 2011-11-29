@@ -10,7 +10,7 @@
 ?>
 
 <section class="title">
-	<h4><?php echo lang('store_product_edit_label');?></h4>
+	<h4><?php echo lang('store_title_edit_product');?></h4>
 </section>
 
 <section class="item">
