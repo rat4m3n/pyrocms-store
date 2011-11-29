@@ -9,7 +9,7 @@
 **/
 ?>
 <section class="title">
-	<h4><?php echo lang('store_title_list_products')?></h4>
+	<h4><?php echo lang('store_title_store_products')?></h4>
 </section>
 
 <section class="item">
@@ -55,7 +55,7 @@
 		</tbody>
 	</table>
 
-	<div class="buttons align-right padding-top">
+	<div class="table_action_buttons">
 		<?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete'))); ?>
 	</div>
 

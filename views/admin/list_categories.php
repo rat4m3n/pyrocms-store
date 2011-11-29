@@ -9,7 +9,7 @@
 **/
 ?>
 <section class="title">
-	<h4><?php echo lang('store_title_list_category')?></h4>
+	<h4><?php echo lang('store_title_store_categories')?></h4>
 </section>
 
 <section class="item">
