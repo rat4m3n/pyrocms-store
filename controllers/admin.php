@@ -43,7 +43,7 @@ class Admin extends Admin_Controller
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
 				->title($this->module_details['name'], lang('store_title_edit_store'))
-				->build('admin/index',$this->data);
+				->build('admin/store/index',$this->data);
 		}
 		else{
 			

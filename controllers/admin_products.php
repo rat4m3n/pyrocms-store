@@ -38,7 +38,7 @@ class Admin_products extends Admin_Controller
 			'products'	=>	$products
 		);
 		
-		$this->template->build('admin/list_products', $this->data);
+		$this->template->build('admin/products/index', $this->data);
 	}
 	
 	public function add()
@@ -50,7 +50,7 @@ class Admin_products extends Admin_Controller
 			$this->data = array( 'categories' => $this->products_m->make_categories_dropdown(0) );
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-				->build('admin/add_product', $this->data);
+				->build('admin/products/add', $this->data);
 		}
 		else
 		{
@@ -84,7 +84,7 @@ class Admin_products extends Admin_Controller
 			$this->data = array( 'categories' => $categories, 'product' => $product );
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-				->build('admin/edit_product', $this->data);
+				->build('admin/products/edit', $this->data);
 		}
 		else
 		{

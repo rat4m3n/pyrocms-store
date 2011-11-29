@@ -80,7 +80,7 @@ class Store_m extends MY_Model {
 	}
 	
 
-	
+
 	public function build_order()
 	{
 		$this->data = array(

@@ -37,7 +37,7 @@ class Admin_categories extends Admin_Controller
 			'categories'	=>	$categories
 		);
 		
-		$this->template->build('admin/list_categories', $this->data);
+		$this->template->build('admin/categories/index', $this->data);
 	}
 
 	public function add()
@@ -51,7 +51,7 @@ class Admin_categories extends Admin_Controller
 			
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-				->build('admin/add_category', $this->data);	
+				->build('admin/categories/add', $this->data);	
 		}
 		else
 		{
@@ -86,7 +86,8 @@ class Admin_categories extends Admin_Controller
 			
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-				->build('admin/edit_category', $this->data);	
+				->build('admin/categories/edit', $this->data);	
+
 		}
 		else
 		{

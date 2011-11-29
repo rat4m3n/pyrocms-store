@@ -9,11 +9,9 @@
 **/
 ?>
 
-<?php if ($this->method == 'add_product'): ?>
 <section class="title">
-	<h4><?php echo lang('store_product_add_label');?></h4>
+	<h4><?php echo lang('store_product_edit_label');?></h4>
 </section>
-<?php endif; ?>
 
 <section class="item">
 <?php echo form_open($this->uri->uri_string(), 'class="crud"'); ?>
@@ -22,60 +20,60 @@
 	<ol>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_category_id','categories_id'); ?>
-			<?php echo form_dropdown('categories_id',$this->store_m->make_categories_dropdown(),'class="text" maxlength="50"'); ?>
+			<?php echo form_dropdown('categories_id', $categories ,'class="text" maxlength="50"'); ?>
 			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
 		</li>	
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_name','name'); ?>
-			<?php echo form_input('name',set_value('name',''),'class="text" maxlength="50"'); ?>
+			<?php echo form_input('name',set_value('name', $product->name),'class="text" maxlength="50"'); ?>
 			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_html','html'); ?>
-			<?php echo form_textarea('html',set_value('html',''),'class="wysiwyg-simple" maxlength="1000" rows="7"'); ?>
+			<?php echo form_textarea('html',set_value('html', $product->html),'class="wysiwyg-simple" maxlength="1000" rows="7"'); ?>
 			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_meta_description','meta_description'); ?>
-			<?php echo form_textarea('meta_description',set_value('meta_description',''),' maxlength="1000" rows="3"'); ?>
+			<?php echo form_textarea('meta_description',set_value('meta_description',$product->meta_description),' maxlength="1000" rows="3"'); ?>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_meta_keywords','meta_keywords'); ?>
-			<?php echo form_input('meta_keywords',set_value('meta_keywords',''),'class="text" maxlength="50"'); ?>
+			<?php echo form_input('meta_keywords',set_value('meta_keywords',$product->meta_keywords),'class="text" maxlength="50"'); ?>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_attributes_id','attributes_id'); ?>
-			<?php echo form_input('attributes_id',set_value('attributes_id',''),'class="text" maxlength="50"'); ?>
+			<?php echo form_input('attributes_id',set_value('attributes_id',$product->attributes_id),'class="text" maxlength="50"'); ?>
 		</li>		
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_price','price'); ?>
-			<?php echo form_input('price',set_value('price',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('price',set_value('price',$product->price),'class="text" maxlength="10"'); ?>
 			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_discount','discount'); ?>
-			<?php echo form_input('discount',set_value('discount',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('discount',set_value('discount',$product->discount),'class="text" maxlength="10"'); ?>
 		</li>	
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_stock','stock'); ?>
-			<?php echo form_input('stock',set_value('stock',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('stock',set_value('stock',$product->stock),'class="text" maxlength="10"'); ?>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_limited','limited'); ?>
-			<?php echo form_input('limited',set_value('limited',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('limited',set_value('limited',$product->limited),'class="text" maxlength="10"'); ?>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_limited_used','limited_used'); ?>
-			<?php echo form_input('limited_used',set_value('limited_used',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('limited_used',set_value('limited_used',$product->limited_used),'class="text" maxlength="10"'); ?>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_images_id','images_id'); ?>
-			<?php echo form_input('images_id',set_value('images_id',''),'class="text" maxlength="10"'); ?>
+			<?php echo form_input('images_id',set_value('images_id',$product->images_id),'class="text" maxlength="10"'); ?>
 			
 		</li>		
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_thumbnail','thumbnail_id'); ?>
-			<?php echo form_input('thumbnail_id',set_value('thumbnail_id',''),'class="text" maxlength="10"'); ?>			
+			<?php echo form_input('thumbnail_id',set_value('thumbnail_id',$product->thumbnail_id),'class="text" maxlength="10"'); ?>			
 		</li>
 			<li class="<?php echo alternator('even', ''); ?>">
 				<?php echo lang('store_product_add_allow_comments','allow_comments'); ?>
