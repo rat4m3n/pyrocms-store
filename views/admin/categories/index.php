@@ -9,24 +9,24 @@
 **/
 ?>
 <section class="title">
-	<h4><?php echo lang('store_categories_title_index')?></h4>
+	<h4><?php echo lang('store_title_list_category')?></h4>
 </section>
 
 <section class="item">
 	
 	<?php if ($categories): ?>
 
-		<?php echo form_open('admin/store/categories/delete'); ?>
+		<?php echo form_open('admin/store/list_categories'); ?>
     
         <table border="0" class="table-list">
             <thead>
                 <tr>
                     <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
-                    <th><?php echo lang('store_categories_header_thumbnail'); ?></th>
-                    <th><?php echo lang('store_categories_header_name'); ?></th>
-                    <th><?php echo lang('store_categories_header_category_id'); ?></th>
-                    <th><?php echo lang('store_categories_header_parent'); ?></th>
-                    <th width="320" class="align-center"><span><?php echo lang('store_categories_header_actions'); ?></span></th>
+                    <th><?php echo lang('store_categories_list_thumbnail'); ?></th>
+                    <th><?php echo lang('store_categories_list_name'); ?></th>
+                    <th><?php echo lang('store_categories_list_category_id'); ?></th>
+                    <th><?php echo lang('store_categories_list_parent'); ?></th>
+                    <th width="320" class="align-center"><span><?php echo lang('store_categories_list_actions'); ?></span></th>
                 </tr>
             </thead>
             <tfoot>
@@ -37,19 +37,20 @@
                 </tr>
             </tfoot>
             <tbody>
-                <?php foreach($categories as $category): ?>
+                <?php foreach($categories as $category) { ?>
                     <tr>
                         <td><?php echo form_checkbox('action_to[]', $category->categories_id); ?></td>
                         <td><?php echo $category->thumbnail_id; ?></td>
                         <td><?php echo $category->name; ?></td>
                         <td><?php echo $category->categories_id; ?></td>
                         <td><?php echo $category->parent_id; ?></td>
-						<td class="align-center buttons buttons-small">
-                            <?php echo anchor('admin/store/categories/edit/' . $category->categories_id, lang('global:edit'), 'class="button edit"'); ?>
-                            <?php echo anchor('admin/store/categories/delete/' . $category->categories_id, lang('global:delete'), 'class="confirm button delete"'); ?>
+                        <td class="align-center buttons buttons-small">
+                            <?php echo anchor('admin/store/preview_category/' . $category->categories_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+                            <?php echo anchor('admin/store/edit_category/' . $category->categories_id, lang('store_button_edit'), 'class="button edit"'); ?>
+                            <?php echo anchor('admin/store/delete_category/' . $category->categories_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php } ?>
                 </tbody>
             </table>
 
@@ -60,6 +61,6 @@
 		<?php echo form_close(); ?>
 
 	<?php else: ?>
-		<div class="no_data"><?php echo lang('store_categories_messages_information_no_categories'); ?></div>
+		<div class="no_data"><?php echo lang('store_currently_no_categories'); ?></div>
 	<?php endif; ?>
 </section>
