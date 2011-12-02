@@ -33,3 +33,5 @@ $route['store/admin/delete_product(/:any)?'] = 'admin_products/delete$1';
 $route['store/admin/preview_category(/:any)?'] = 'store/category$1';
 $route['store/admin/edit_category(/:any)?'] = 'admin_categories/edit$1';
 $route['store/admin/delete_category(/:any)?'] = 'admin_categories/delete$1';
+
+$route['store/admin/category(/:any)?'] = 'admin_products/category_products$1';
