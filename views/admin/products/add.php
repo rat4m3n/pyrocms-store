@@ -16,7 +16,7 @@
 
 
 <section class="item">
-<?php echo form_open($this->uri->uri_string(), 'class="crud"'); ?>
+<?php echo form_open_multipart($this->uri->uri_string(), 'class="crud"'); ?>
 
 <div>
 	<ol>
@@ -32,8 +32,8 @@
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_html','html'); ?>
+			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>			
 			<?php echo form_textarea('html',set_value('html',''),'class="wysiwyg-simple" maxlength="1000" rows="7"'); ?>
-			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_meta_description','meta_description'); ?>
@@ -70,8 +70,8 @@
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_images_id','images_id'); ?>
-			<?php echo form_input('images_id',set_value('images_id',''),'class="text" maxlength="10"'); ?>
-			
+<!-- 			<?php echo form_input('images_id',set_value('images_id',''),'class="text" maxlength="10"'); ?> -->
+			<?php echo form_upload('userfile'); ?>
 		</li>		
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_thumbnail','thumbnail_id'); ?>

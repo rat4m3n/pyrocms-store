@@ -12,6 +12,7 @@ class Categories_m extends MY_Model {
 	protected $_table		=	'store_categories';
 	protected $primary_key	=	'categories_id';
 	protected $_store;
+	protected $images_path = 'uploads/store/categories/';
 
 	public function __construct()
 	{		
@@ -68,17 +69,77 @@ class Categories_m extends MY_Model {
 	}
 	
 	
-	public function add_category()
+	public function add_category($new_image_id)
 	{	
 		$this->data = $this->input->post();// get all post fields
 		array_pop($this->data);// remove the submit button field
-		if ($this->db->insert($this->_table, $this->data)){ 
-			return $this->db->insert_id(); 
-		}
-		else { return false; } 
+		unset($this->data['userfile']);
+		
+		if ($new_image_id) { $this->data['images_id'] = $new_image_id; }
+		
+		return $this->db->insert($this->_table, $this->data) ? $this->db->insert_id() : false;  
 	}
 	
 	
+	/*  Function: update_category */
+	public function update_category($categories_id, $new_image_id=0)
+	{
+		$this->data = $this->input->post();// get all post fields
+		array_pop($this->data);// remove the submit button field
+		unset($this->data['userfile']);
+		
+		if ( ! ($new_image_id == 0 ) ) { 
+
+			$category = $this->get_category($categories_id);
+				
+			$this->images_m->delete_image($category->images_id, $this->images_path);
+
+			$this->data['images_id'] = $new_image_id; 
+		}
+				
+		return $this->db->where('categories_id', $categories_id)
+							 ->update($this->_table, $this->data);		
+	}
+	
+	
+	public function get_category($categories_id)
+	{
+		return $this->db->where('categories_id', $categories_id)->limit(1)->get($this->_table)->row();
+	}
+
+	public function get_category_by_name($category_name)
+	{
+		return $this->db->where('name', $category_name)->limit(1)->get($this->_table)->row();
+	}
+
+
+	public function delete_category($categories_id){
+
+		$category = $this->get_category($categories_id);// get the product
+		
+		$this->images_m->delete_image($category->images_id, $this->images_path);
+		
+		// then delete record in table
+		return $this->db->where('categories_id', $categories_id)->delete($this->_table);
+	}	
+
+
+
+	public function get_category_name($categories_id){
+		return $this->db->where('categories_id', $categories_id)
+							 ->limit(1)
+							 ->get($this->_table)
+							 ->row();
+	}	
+
+
+
+
+
+
+
+
+
 	
 	
 }

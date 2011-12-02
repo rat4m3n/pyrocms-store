@@ -13,11 +13,11 @@
 
 
     <section class="title">
-        <h4><?php echo lang('store_title_add_category');?></h4>
+        <h4><?php echo lang('store_title_edit_category');?></h4>
     </section>
 
 <section class="item">
-	<?php echo form_open($this->uri->uri_string(), 'class="crud"'); ?>
+	<?php echo form_open_multipart($this->uri->uri_string(), 'class="crud"'); ?>
 	<div>
 		<ol>
 			<li class="<?php echo alternator('even', ''); ?>">
@@ -33,13 +33,16 @@
             
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_parent_id','parent_id'); ?>
-                <?php echo form_dropdown('parent_id',$categories,'class="text" maxlength="10"'); ?>
+                <?php echo form_dropdown('parent_id',$dropdown,'class="text" maxlength="10"'); ?>
                 
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_images_id','images_id'); ?>
-                <?php echo form_input('images_id',set_value('images_id', $category->images_id),'class="text" maxlength="10"'); ?>
-                
+					<?php 
+						if(isset($category->image)){ echo $category->image; }
+					?>
+					<?php echo form_upload('userfile'); ?>
+
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_thumbnail','thumbnail_id'); ?>

@@ -1,0 +1,32 @@
+
+
+table td , table th { text-align: center; }
+img.products { border-radius: 0.4em; }
+img.image_thumbs { border-radius: 0.4em; }
+.no_image { line-height: 30px; margin-bottom: 15px; }
+
+ol li { margin: 20px 0px 20px 40px; }
+label { width: 150px; display: inline-block; margin-bottom: 15px; }
+
+.required-icon { margin-left: 10px; } 
+
+#cboxLoadedContent {   }
+
+/* section title and item */
+#cboxLoadedContent section.title {  width: 768px; margin-top: 0px; border: 1px solid lightgrey;
+margin: 5px 0px 0px 3px;  }
+#cboxLoadedContent section.item { width: 766px; border-radius: 0em; border: 1px solid lightgrey;
+border-bottom-left-radius: 0.5em; border-bottom-right-radius: 0.5em; margin: 5px 0px 10px 3px; 
+clear: both; }
+
+#cboxLoadedContent ul, #cboxLoadedContent ol { padding-left: 25px; }
+#cboxLoadedContent section textarea { width: 90%; display: block;  }
+#cboxLoadedContent .buttons { margin: 30px 0px 20px 30px; }
+.buttons { margin: 30px 0px 20px 35px; }
+
+/* the ckeditor wrapper */
+#cke_html { width: 91.0%; max-width: 91.0%; }
+
+
+.table_action_buttons { margin-left: 30px; }
+

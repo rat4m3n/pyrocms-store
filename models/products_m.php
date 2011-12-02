@@ -13,35 +13,56 @@
 class Products_m extends MY_Model {
 
 	protected $_table		=	'store_products';
+	protected $images_path = 'uploads/store/products/';
 
 	public function __construct()
 	{		
 		parent::__construct();
 		$this->load->library('store_settings');
-		$this->_store = $this->store_settings->item('store_id');		
+		$this->_store = $this->store_settings->item('store_id');	
+		
+		$this->load->model('images_m');
+		$this->load->model('files/file_m');	
 	}
 
 	// get_all(), count_all(), inherited from MY_Model when $_table is set	
 	
-	public function update_product($products_id)
+	public function update_product($products_id, $new_image_id=0)
 	{
 		$this->data = $this->input->post();// get all post fields
 		array_pop($this->data);// remove the submit button field
-		$this->db->where('products_id', $products_id);
-		return $this->db->update($this->_table, $this->data);		
+		unset($this->data['userfile']);
+		
+		if ( ! ($new_image_id == 0 ) ) { 
+
+			$product = $this->get_product($products_id);
+				
+			$this->images_m->delete_image($product->images_id, $this->images_path);// remove from files table
+
+			$this->data['images_id'] = $new_image_id; 
+		}
+				
+		return $this->db->where('products_id', $products_id)->update($this->_table, $this->data);		
 	}
 	
-	public function add_product()
+	public function add_product($new_image_id=0)
 	{
 		$this->data = $this->input->post();// get all post fields
 		array_pop($this->data);// remove the submit button field
-		if ($this->db->insert($this->_table, $this->data)){
-			return $this->db->insert_id();
-		}
-		else return false;
+		unset($this->data['userfile']);
+		
+		if ($new_image_id) { $this->data['images_id'] = $new_image_id; }
+	
+		return $this->db->insert($this->_table, $this->data) ? $this->db->insert_id() : false;  
 	}
 	
 	public function delete_product($products_id){
+
+		$product = $this->get_product($products_id);// get the product
+		
+		$this->images_m->delete_image($product->images_id, $this->images_path);
+		
+		// then delete record in table
 		return $this->db->where('products_id', $products_id)->delete($this->_table);
 	}	
 	
@@ -76,6 +97,11 @@ class Products_m extends MY_Model {
          return $data;      	 	
       }
    }	
+	
+	
+	public function count_products($categories_id){
+		return $this->count_by('categories_id', $categories_id);
+	}
 	
 	
 	public function get_products($categories_id)

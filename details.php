@@ -259,7 +259,11 @@ class Module_Store extends Module {
 
 		if(is_dir('uploads/store') OR @mkdir('uploads/store',0777,TRUE))
 		{
-			return TRUE;
+			// make upload folders for admin images and stuff
+			if ( (is_dir('uploads/store/products') OR @mkdir('uploads/store/products',0777,TRUE) ) &&
+				(is_dir('uploads/store/categories') OR @mkdir('uploads/store/categories',0777,TRUE) )) {
+				return TRUE;
+			}
 		}
 	}
 

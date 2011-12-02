@@ -61,12 +61,7 @@ class Store_m extends MY_Model {
      * @param int $id
      * @return string 
      */		
-	public function get_category_name($categories_id){
-		return $this->db->where('categories_id', $categories_id)
-							 ->limit(1)
-							 ->get('store_categories')
-							 ->row();
-	}	
+
 	
 	
 	

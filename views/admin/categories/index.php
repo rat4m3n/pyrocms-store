@@ -9,7 +9,7 @@
 **/
 ?>
 <section class="title">
-	<h4><?php echo lang('store_title_list_category')?></h4>
+	<h4><?php echo lang('store_title_list_categories')?></h4>
 </section>
 
 <section class="item">
@@ -24,6 +24,7 @@
                     <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                     <th><?php echo lang('store_categories_list_thumbnail'); ?></th>
                     <th><?php echo lang('store_categories_list_name'); ?></th>
+                    <th>Products</th>
                     <th><?php echo lang('store_categories_list_category_id'); ?></th>
                     <th><?php echo lang('store_categories_list_parent'); ?></th>
                     <th width="320" class="align-center"><span><?php echo lang('store_categories_list_actions'); ?></span></th>
@@ -40,8 +41,19 @@
                 <?php foreach($categories as $category) { ?>
                     <tr>
                         <td><?php echo form_checkbox('action_to[]', $category->categories_id); ?></td>
-                        <td><?php echo $category->thumbnail_id; ?></td>
-                        <td><?php echo $category->name; ?></td>
+								<td><?php if (isset($category->image)) { echo $category->image; }
+											 else { echo $this->images_m->no_image(); } ?></td>
+                        <td><?php 
+										if (isset($category->name)) { 
+											$output = '<a href="admin/store/category/';
+											$output .= str_replace(' ', '-', $category->name) . '" >';							
+											$output .= $category->name; 
+											$output .= '</a>';
+										} 
+										else { $output = "-------"; }
+										echo $output;  
+							?></td>
+								<td><?php echo $this->products_m->count_products($category->categories_id); ?></td>
                         <td><?php echo $category->categories_id; ?></td>
                         <td><?php echo $category->parent_id; ?></td>
                         <td class="align-center buttons buttons-small">
