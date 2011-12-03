@@ -72,9 +72,7 @@
 
 	<?php echo form_close(); ?>
 
-<?php else: ?>
-	<div class="blank-slate">
-		<h2><?php echo lang('store_currently_no_products'); ?></h2>
-	</div>
-<?php endif; ?>
+	<?php else: ?>
+        <div class="no_data"><?php echo lang('store_currently_no_products'); ?></div>
+    <?php endif; ?>
 </section>
