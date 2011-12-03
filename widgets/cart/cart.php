@@ -19,7 +19,7 @@ class Widget_Cart extends Widgets {
 		'nl' => 'Toon de Winkel mand',
 		'de' => 'Zeigen Sie die Shopping Cart'
 	);
-	public $author		= 'Jacob Albert Jolman & Kevin Meier';
+	public $author		= 'Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey';
 	public $website		= 'http://www.odin-ict.nl/';
 	public $version		= '1.0';
 	

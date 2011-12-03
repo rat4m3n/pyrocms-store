@@ -7,8 +7,8 @@
  * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
-	$html='<link href="'.ADDONPATH.'modules/store/css/widget_cart.css" type="text/css" rel="stylesheet" />';
-	$html.='<script type="text/javascript" src="'.ADDONPATH.'modules/store/js/widget_cart.js"></script>';
+	$html='<link href="/'.ADDONPATH.'modules/store/css/widget_cart.css" type="text/css" rel="stylesheet" />';
+	$html.='<script type="text/javascript" src="/'.ADDONPATH.'modules/store/js/widget_cart.js"></script>';
 	$html.='<div id="widget_shopping_cart">';
 	if($this->cart->contents())
 	{

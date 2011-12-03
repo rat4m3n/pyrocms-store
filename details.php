@@ -28,6 +28,7 @@ class Module_Store extends Module {
 			'backend'	=> TRUE,
 			'skip_xss'	=> TRUE,
 			'menu'		=> 'content',
+			'author'	=> 'Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey',
 		
 			'roles'		=> array(
 				'admin_module'
