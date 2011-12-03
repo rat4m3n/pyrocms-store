@@ -2,9 +2,9 @@
 /**
  * This is a store module for PyroCMS
  *
- * @author 		Jaap Jolman And Kevin Meier - pyrocms-store Team
- * @website		http://jolman.eu
- * @package 	PyroCMS
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
 class Categories_m extends MY_Model {

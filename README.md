@@ -12,6 +12,14 @@ if you have any questions don't hesitate to ask them.
 
 greetings the pyrocms-store team
 
+The Team
+--------
+
+Jaap Jolman
+Kevin Meier
+Rudolph Arthur Hernandez
+Gary Hussey
+
 Installing
 ----------
 
