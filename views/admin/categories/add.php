@@ -39,11 +39,7 @@
 					 <?php echo form_upload('userfile'); ?>
                 
             </li>
-            <li class="<?php echo alternator('even', ''); ?>">
-                <?php echo lang('store_cat_add_thumbnail','thumbnail_id'); ?>
-                <?php echo form_input('thumbnail_id',set_value('thumbnail_id',''),'class="text" maxlength="10"'); ?>
-                
-            </li>
+
         </ol>
         <div class="buttons float-right padding-top">
             <?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'cancel') )); ?>

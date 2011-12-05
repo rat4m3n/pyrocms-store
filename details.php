@@ -156,6 +156,7 @@ class Module_Store extends Module {
 				`categories_id` INT NOT NULL ,
 				`attributes_id` INT NOT NULL ,
 				`name` VARCHAR(100) NOT NULL ,
+				`slug` VARCHAR(100) NOT NULL ,
 				`meta_description` TEXT NULL ,
 				`meta_keywords` TEXT NULL ,
 				`html` LONGTEXT NULL ,

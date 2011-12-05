@@ -24,7 +24,7 @@
                     <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                     <th><?php echo lang('store_categories_list_thumbnail'); ?></th>
                     <th><?php echo lang('store_categories_list_name'); ?></th>
-                    <th>Products</th>
+                    <th><?php echo lang('store_categories_list_items'); ?></th>
                     <th><?php echo lang('store_categories_list_category_id'); ?></th>
                     <th><?php echo lang('store_categories_list_parent'); ?></th>
                     <th width="320" class="align-center"><span><?php echo lang('store_categories_list_actions'); ?></span></th>

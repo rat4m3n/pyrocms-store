@@ -32,6 +32,7 @@ class Products_m extends MY_Model {
 		$this->data = $this->input->post();// get all post fields
 		array_pop($this->data);// remove the submit button field
 		unset($this->data['userfile']);
+		$this->data['slug'] = str_replace(' ', '-', $this->data['name']);
 		
 		if ( ! ($new_image_id == 0 ) ) { 
 
@@ -50,6 +51,7 @@ class Products_m extends MY_Model {
 		$this->data = $this->input->post();// get all post fields
 		array_pop($this->data);// remove the submit button field
 		unset($this->data['userfile']);
+		$this->data['slug'] = str_replace(' ', '-', $this->data['name']);
 		
 		if ($new_image_id) { $this->data['images_id'] = $new_image_id; }
 	

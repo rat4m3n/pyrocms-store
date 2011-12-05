@@ -1,3 +1,31 @@
+
+
+#categories { text-align: center; }
+#categories h4, #category h4 { padding: 0px 35px 0px 35px; text-align: center; font-size: 16px; 
+margin: 5px 0px 0px 0px;  }
+#categories li a, #category li a { font-size: 16px; text-decoration: none; }
+#categories li, #category li { text-align: center; margin: 10px 5px 10px 5px; display: inline-block; 
+padding: 5px 0px 10px 0px; 
+border: 1px solid lightgrey; border-radius: 0.5em; vertical-align: middle; opacity: 0.80;}
+#categories li:hover, #category li:hover { opacity: 1; filter: alpha(opacity=100); }
+#categories ul, #category ul { padding: 0px; text-align: center; }
+
+
+#categories img, #category img { border-radius: 0.5em; border: none;
+filter: alpha(opacity=80); margin: 10px 15px 10px 15px;
+#-moz-box-shadow: 5px 5px 2px #ccc;  
+#-webkit-box-shadow: 5px 5px 2px #888; 
+#box-shadow: 5px 5px 2px #ccc;}
+
+#categories h5, #category h5 { float: right; margin: 0px 20px 0px 0px; font-size: 15px;
+padding: 0px; }
+
+#product li { list-style: none; }
+#product li h2 { padding: 0px; }
+
+
+
+
 /* Show Cart */
 div#show_cart{
 	width: 100%;

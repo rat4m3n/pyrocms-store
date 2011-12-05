@@ -30,27 +30,85 @@ class Store extends Public_Controller
 						->append_metadata(js('store.js', 'store'));
 	}
 
-	// display the categories of the store
+	// display the categories of the store 
 	public function index(){
+		
 		$categories = $this->categories_m->get_all();
-		$this->data = array( 'categories' =>	$categories );
+		foreach ($categories as $category){
+
+			$image = $this->images_m->get_image($category->images_id);
+			
+			if($image){ 
+				$this->images_m->front_image_resize('uploads/store/categories/', $image, 175, 140);	
+				$category->image = $image;
+			}	
+		}
+
+		$this->data = array(
+			'categories'	=>	$categories
+		);		
+
 		$this->template->build('index', $this->data);
+
 	}
 	
-	// display the products associated with the category id
-	public function category($categories_id){
-		$products = $this->products_m->get_products($categories_id);
-		$this->data = array( 'products'	=>	$products );
-		$this->template->build('category', $this->data);
-	}
 	
-	// display specific product given by $products_id
-	public function product($products_id){
-		$product = $this->products_m->get_product($products_id);
-		$this->data = array( 'product' =>	$product );
-		$this->template->build('product', $this->data);
-	}
 	
+/* *****************
+	Display the products associated with category ($name), or a specific product
+	($product_slug) within the category ($name). 
+	if no category ($name) is found, redirects to store index.
+	if no product ($product_slug) is in category ($name), redirect to the $name index. 
+*/
+	public function items($name=0, $product_slug = 0){
+		
+		if( ! $name ) { redirect('store'); }
+		$name = str_replace('-', ' ', $name);
+		$category = $this->categories_m->get_category_by_name($name);
+		
+		if($category){
+			if ( ! $product_slug ) {
+				$products = $this->products_m->get_products($category->categories_id);
+				if($products){
+					foreach ($products as $product){
+						
+						$image = $this->images_m->get_image($product->images_id);
+						if($image){ 
+							$this->images_m->front_image_resize('uploads/store/products/', $image, 150, 120);	
+							$product->image = $image;
+						}		
+					}
+					$this->data = array( 
+							'products'	=>	$products, 'category_name' => $category->name );
+				}
+				$this->template->build('category', $this->data);
+			}
+			else {  	// display specific product given by $products_id
+
+				$product = $this->products_m->get_by('slug', $product_slug);
+				if($product){
+					$image = $this->images_m->get_image($product->images_id);
+					if($image){ 
+						//$this->images_m->front_image_resize('uploads/store/products/', $image, 150, 120);	
+						$product->image = $image;
+					}						
+					$this->data = array( 'product' =>	$product );
+					$this->template->build('product', $this->data);
+				}
+				else { redirect('store/items/'.$category->name); }
+				
+				
+			}
+		}
+		else {
+			redirect('store');
+		}
+	}	
+	
+	
+
+/* *******************  CART STUFF ********************** */
+
 	public function show_cart(){
 
 		$this->data = array(

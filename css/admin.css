@@ -2,7 +2,7 @@
 
 table td , table th { text-align: center; }
 img.products { border-radius: 0.4em; }
-img.image_thumbs { border-radius: 0.4em; }
+img.image_thumbs { border-radius: 0.4em; margin-right: 20px; }
 .no_image { line-height: 30px; margin-bottom: 15px; }
 
 ol li { margin: 20px 0px 20px 40px; }

@@ -11,6 +11,7 @@
 
 class Images_m extends MY_Model {
 
+	// protected $_table = 'store_images';
 	protected $_table = array(
 		'files' => 'files',
 		'file_folders' => 'file_folders'	
@@ -91,16 +92,31 @@ class Images_m extends MY_Model {
 		}
 		// else do nothing
 	}// end delete_image
+
+
+
+	public function front_image_resize($source_image_path, $image, $width=75, $height=50){
+		
+		$resize_config['image_library'] = 'gd2';
+		$resize_config['source_image']	= $source_image_path . $image->filename;
+		$resize_config['new_image'] = $source_image_path . $image->name . $image->id. $image->extension;
+		$resize_config['create_thumb'] = FALSE;
+		$resize_config['maintain_ratio'] = TRUE;
+		$resize_config['width']	= $width;		
+		$resize_config['height']	= $height;
+
+		$this->image_lib->initialize($resize_config);
+		$this->image_lib->resize();			
+	}	
 	
-	
-	public function create_thumb($source_image_path){
+	public function create_thumb($source_image_path, $width=75, $height=50){
 		
 		$resize_config['image_library'] = 'gd2';
 		$resize_config['source_image']	= $source_image_path;
 		$resize_config['create_thumb'] = TRUE;
 		$resize_config['maintain_ratio'] = TRUE;
-		$resize_config['width']	= 75;		
-		$resize_config['height']	= 50;
+		$resize_config['width']	= $width;		
+		$resize_config['height']	= $height;
 
 		$this->image_lib->initialize($resize_config);
 		$this->image_lib->resize();			
@@ -116,8 +132,9 @@ class Images_m extends MY_Model {
 										
 		$output = '<a href="'. $image_path . $image->filename;
 		$output .= '" rel="cbox_images" class="product_images';// for use with colorbox 
-		$output .= '" >';
-		$output .= '<img src="'. $image_path . $image->name . '_thumb' . $image->extension; 
+		$image->name = str_replace(array('-','_') , ' ', $image->name);
+		$output .= '" title="'. ucfirst($image->name) . '" >';
+		$output .= '<img src="'. $thumb_image_path; 
 		$output .= '" class="image_thumbs" alt="' . $image->name;
 		$output .= '" /></a>';
 		

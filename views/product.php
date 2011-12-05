@@ -17,7 +17,11 @@
 				<h2><?php echo $product->name; ?></h2>
 			</div>
 			<div>
-				<img src="" alt="<?php echo $product->name; ?>" />
+			<?php if(isset($product->image)) : ?>
+				<?php $name = $product->image->name; $id = $product->image->id; 
+						$extension = $product->image->extension; ?>			
+				<img src="<?=base_url();?>uploads/store/products/<?=$name . $extension;?>" alt="<?php echo $product->name; ?>" />
+			<?php endif; ?>				
 				<?php echo $product->html; ?>
 			</div>
 			<div>

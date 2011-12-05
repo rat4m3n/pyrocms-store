@@ -181,6 +181,7 @@ $lang['store_currently_no_products']				= 'Currently no products created';
 
 // List Categories
 $lang['store_categories_list_name']					= 'Name';
+$lang['store_categories_list_items']					= 'Items';
 $lang['store_categories_list_category_id']			= 'Category';
 $lang['store_categories_list_price']				= 'Price';
 $lang['store_categories_list_parent']				= 'Parent';

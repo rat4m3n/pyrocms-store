@@ -27,8 +27,8 @@
             </li>
             <li class="<?php echo alternator('even', ''); ?>">
                 <?php echo lang('store_cat_add_html','html'); ?>
+                <span class="required-icon tooltip"><?php echo lang('required_label');?></span>                
                 <?php echo form_textarea('html',set_value('html',$category->html),'class="wysiwyg-simple" maxlength="1000"'); ?>
-                <span class="required-icon tooltip"><?php echo lang('required_label');?></span>
             </li>
             
             <li class="<?php echo alternator('even', ''); ?>">
@@ -44,11 +44,7 @@
 					<?php echo form_upload('userfile'); ?>
 
             </li>
-            <li class="<?php echo alternator('even', ''); ?>">
-                <?php echo lang('store_cat_add_thumbnail','thumbnail_id'); ?>
-                <?php echo form_input('thumbnail_id', set_value('thumbnail_id', $category->thumbnail_id),'class="text" maxlength="10"'); ?>
-                
-            </li>
+
         </ol>
         <div class="buttons float-right padding-top">
             <?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'cancel') )); ?>
