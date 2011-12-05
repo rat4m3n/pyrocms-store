@@ -74,10 +74,6 @@ $config = array(
 					'label' => 'store_cat_add_images_id',
 					'rules' => 'trim|max_length[10]|' ),
 					
-			array('field' => 'thumbnail_id',
-					'label' => 'store_cat_add_thumbnail_id',
-					'rules' => 'trim|max_length[10]|' ),
-					
 			array('field' => 'store_store_id',
 					'label' => 'store_cat_add_store_store_id',
 					'rules' => 'trim|max_length[10]|' )
