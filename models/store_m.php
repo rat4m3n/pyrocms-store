@@ -2,9 +2,9 @@
 /**
  * This is a store module for PyroCMS
  *
- * @author 		Jaap Jolman And Kevin Meier - pyrocms-store Team
- * @website		http://jolman.eu
- * @package 	PyroCMS
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
 class Store_m extends MY_Model {
@@ -74,8 +74,43 @@ class Store_m extends MY_Model {
 		}
 	}
 	
-
-
+	public function get_product_in_cart($product)
+	{
+		$this->db->where('products_id',$product);
+		$this->query = $this->db->get('store_products');
+		foreach($this->query->result() as $this->product)
+		{
+			$this->items = array(
+				'id' => $this->product->products_id,
+				'qty' => $this->input->post('qty'),
+				'price' => $this->product->price,
+				'name' => $this->product->name,
+				'options' => $this->get_product_attributes($this->product->attributes_id)
+			);
+			return $this->items;
+		}
+	}
+	
+	public function get_product_attributes($attributes)
+	{
+		$this->db->where('attributes_id',$attributes);
+		$this->query = $this->db->get('store_attributes');
+		
+		foreach($this->query->result() as $this->attribute)
+		{
+			$this->result = array();
+			$this->items = explode("|", $this->attribute->html);
+			
+			foreach($this->items as $this->item)
+			{
+				$this->temp = explode("=", $this->item);
+				$this->result[$this->temp[0]] = $this->temp[1];
+			}
+			
+			return $this->result;
+		}
+	}
+	
 	public function build_order()
 	{
 		$this->data = array(

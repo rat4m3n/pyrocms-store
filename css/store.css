@@ -1,4 +1,11 @@
-
+/* *
+ * This is a store module for PyroCMS
+ *
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
+ * @subpackage 	Store Module
+* */
 
 #categories { text-align: center; }
 #categories h4, #category h4 { padding: 0px 35px 0px 35px; text-align: center; font-size: 16px; 
@@ -24,6 +31,7 @@ padding: 0px; }
 #product li h2 { padding: 0px; }
 
 
+/* **************************************************** */
 
 
 /* Show Cart */

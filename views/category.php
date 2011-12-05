@@ -2,9 +2,9 @@
 /**
  * This is a store module for PyroCMS
  *
- * @author 		Jaap Jolman, Kevin Meier, Rudolph A. Hernandez - pyrocms-store Team
- * @website		http://jolman.eu
- * @package 	PyroCMS
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
 ?>

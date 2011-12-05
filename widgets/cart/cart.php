@@ -2,9 +2,9 @@
 /**
  * This is a store module for PyroCMS
  *
- * @author 		Jaap Jolman And Kevin Meier - pyrocms-store Team
- * @website		http://jolman.eu
- * @package 	PyroCMS
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
 class Widget_Cart extends Widgets {
@@ -19,7 +19,7 @@ class Widget_Cart extends Widgets {
 		'nl' => 'Toon de Winkel mand',
 		'de' => 'Zeigen Sie die Shopping Cart'
 	);
-	public $author		= 'Jacob Albert Jolman & Kevin Meier';
+	public $author		= 'Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey';
 	public $website		= 'http://www.odin-ict.nl/';
 	public $version		= '1.0';
 	

@@ -2,13 +2,13 @@
 /**
  * This is a store module for PyroCMS
  *
- * @author 		Jaap Jolman And Kevin Meier - pyrocms-store Team
- * @website		http://jolman.eu
- * @package 	PyroCMS
+ * @author 		pyrocms-store Team - Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey
+ * @website		http://www.odin-ict.nl/
+ * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
-	$html='<link href="'.ADDONPATH.'modules/store/css/widget_cart.css" type="text/css" rel="stylesheet" />';
-	$html.='<script type="text/javascript" src="'.ADDONPATH.'modules/store/js/widget_cart.js"></script>';
+	$html='<link href="/'.SHARED_ADDONPATH.'modules/store/css/widget_cart.css" type="text/css" rel="stylesheet" />';
+	$html.='<script type="text/javascript" src="/'.SHARED_ADDONPATH.'modules/store/js/widget_cart.js"></script>';
 	$html.='<div id="widget_shopping_cart">';
 	if($this->cart->contents())
 	{
