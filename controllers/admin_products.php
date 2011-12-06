@@ -69,7 +69,10 @@ class Admin_products extends Admin_Controller
 			}	
 			
 			$category = $this->categories_m->get_category_name($product->categories_id);
-			if($category) { $product->category_name = $category->name; }
+			if($category) { 
+				$product->category = $category;
+			
+			}
 		}
 
 		$this->data = array(
@@ -209,7 +212,8 @@ class Admin_products extends Admin_Controller
 				$image = $this->images_m->get_image($product->images_id); 				
 				if($image){ 
 					$product->image = $this->images_m->get_thumb_anchor($image, 'uploads/store/products/'); 
-				}					
+				}
+				$product->category = $category;					
 			}
 			
 			$this->data = array( 
