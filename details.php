@@ -177,6 +177,7 @@ class Module_Store extends Module {
 			CREATE  TABLE IF NOT EXISTS `" . $this->db->dbprefix('store_categories') . "` (
 				`categories_id` INT NOT NULL AUTO_INCREMENT ,
 				`name` VARCHAR(50) NOT NULL ,
+				`slug` VARCHAR(50) NOT NULL ,
 				`html` LONGTEXT NULL ,
 				`parent_id` INT NULL ,
 				`images_id` VARCHAR(50) NULL ,
