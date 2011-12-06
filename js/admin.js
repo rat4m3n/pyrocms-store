@@ -24,7 +24,7 @@ $(document).ready(function(){
 	$('a.product_images').colorbox({
 		transition: 'none',
 		rel: 'cbox_images',
-		current: "{current} of {total}",
+		current: "",
 		//height: '90%', // better usability with w&h.
 		//width:'70%'
 	});

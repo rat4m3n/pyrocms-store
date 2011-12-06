@@ -70,7 +70,6 @@
 		</li>
 		<li class="<?php echo alternator('even', ''); ?>">
 			<?php echo lang('store_product_add_images_id','images_id'); ?>
-<!-- 			<?php echo form_input('images_id',set_value('images_id',''),'class="text" maxlength="10"'); ?> -->
 			<?php echo form_upload('userfile'); ?>
 		</li>		
 		<li class="<?php echo alternator('even', ''); ?>">
