@@ -44,11 +44,11 @@
 								 else { echo $this->images_m->no_image(); } ?></td>
 					<td><?php echo $product->name; ?></td>
 					<td><?php 
-							if (isset($product->category_name)) { 
+							if (isset($product->category->name)) { 
 								$output = '<a href="admin/store/category/';
-								$output .= str_replace(' ', '-', $product->category_name) . '" ';
+								$output .= str_replace(' ', '-', $product->category->name) . '" ';
 								$output .= ' >';						
-								$output .= $product->category_name; 
+								$output .= $product->category->name; 
 								$output .= '</a>';
 							} 
 							else { $output = "-------"; }
@@ -57,7 +57,8 @@
 					<td><?php echo $product->price; ?></td>
 					<td><?php echo $product->discount; ?></td>
 					<td class="align-center buttons buttons-small">
-						<?php echo anchor('admin/store/preview_product/' . $product->products_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+					   <?php $title = 'title="'. ucfirst($product->category->name) . ' - ' . ucfirst($product->name) . '" '; ?>
+						<?php echo anchor('admin/store/preview/' . $product->category->slug . '/' . $product->slug, lang('store_button_view'), $title . 'rel="preview" class="button preview" target="_blank"'); ?>
 						<?php echo anchor('admin/store/edit_product/' . $product->products_id . '/true', lang('store_button_edit'), 'class="edit_product button"'); ?>
 						<?php echo anchor('admin/store/delete_product/' . $product->products_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
 					</td>

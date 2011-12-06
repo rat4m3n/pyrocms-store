@@ -22,12 +22,17 @@
 						$extension = $product->image->extension; ?>			
 				<img src="<?=base_url();?>uploads/store/products/<?=$name . $extension;?>" alt="<?php echo $product->name; ?>" />
 			<?php endif; ?>				
-				<?php echo $product->html; ?>
 			</div>
-			<div>
-				<span><?php echo $this->cart->format_number($product->price); ?></span>
+			<div><p><?php echo lang('store_product_add_html'). " : ";?></p>
+						<?php echo $product->html; ?>
+			</div>
+			<div><p>
+				<span>Price : <?php echo $this->cart->format_number($product->price); ?></span>
 				<?php echo form_input('qty','1') . form_submit('','Add to Cart'); ?>
-			</div>
+			</p></div>
+			<div><p>
+				<?php echo "Stock : " . $product->stock; ?>			
+			</p></div>
 		</li>
 		<?php echo form_close(); ?>
 	</ul>

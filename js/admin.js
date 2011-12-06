@@ -28,6 +28,15 @@ $(document).ready(function(){
 		//height: '90%', // better usability with w&h.
 		//width:'70%'
 	});
+	
+	$('a.preview').colorbox({
+		rel: 'preview',
+		width: "90%",
+		height: "95%",
+		iframe: true,
+		scrolling: true,
+		current: "Preview {current} of {total}"		
+	});
 
 
 });

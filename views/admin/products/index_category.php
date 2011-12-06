@@ -50,7 +50,8 @@
 					<td><?php echo $product->stock; ?></td>
 					<td><?php echo $product->discount; ?></td>
 					<td class="align-center buttons buttons-small">
-						<?php echo anchor('admin/store/preview_product/' . $product->products_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+						<?php $title = 'title="'. ucfirst($product->category->name) . ' - ' . ucfirst($product->name) . '" '; ?>
+						<?php echo anchor('admin/store/preview/' . $product->category->slug . '/' . $product->slug, lang('store_button_view'), $title . 'rel="preview" class="button preview" target="_blank"'); ?>
 						<?php echo anchor('admin/store/edit_product/' . $product->products_id . '/true', lang('store_button_edit'), 'class="edit_product button edit"'); ?>
 						<?php echo anchor('admin/store/delete_product/' . $product->products_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
 					</td>

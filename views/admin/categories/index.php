@@ -57,7 +57,8 @@
                         <td><?php echo $category->categories_id; ?></td>
                         <td><?php echo $category->parent_id; ?></td>
                         <td class="align-center buttons buttons-small">
-                            <?php echo anchor('admin/store/preview_category/' . $category->categories_id, lang('store_button_view'), 'rel="modal-large" class="iframe button preview" target="_blank"'); ?>
+                        	 <?php $title = 'title="'. ucfirst($category->name) . '" '; ?>
+                            <?php echo anchor('admin/store/preview/' . $category->slug, lang('store_button_view'), $title.'rel="preview" class="button preview" target="_blank"'); ?>
                             <?php echo anchor('admin/store/edit_category/' . $category->categories_id, lang('store_button_edit'), 'class="button edit"'); ?>
                             <?php echo anchor('admin/store/delete_category/' . $category->categories_id, lang('store_button_delete'), array('class'=>'confirm button delete')); ?>
                         </td>
