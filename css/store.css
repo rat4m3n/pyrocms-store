@@ -27,8 +27,26 @@ filter: alpha(opacity=80); margin: 10px 15px 10px 15px;
 #categories h5, #category h5 { float: right; margin: 0px 20px 0px 0px; font-size: 15px;
 padding: 0px; }
 
+
+/* product view */
 #product li { list-style: none; }
 #product li h2 { padding: 0px; }
+
+#product form div { padding: 5px; clear: both; }
+#product form span { float: left; margin-top: 5px; margin-right: 10px; }
+#product form input[type="text"] { text-align: right; 
+margin: 0px 10px 0px 10px;
+vertical-align: middle;
+width: 40px;
+}
+#product form input[type="submit"] {
+margin: 2px 0px 0px 0px;
+}
+
+#product form p { padding: 5px 10px 15px 0px;
+float: left; }
+
+
 
 
 /* **************************************************** */
