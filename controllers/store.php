@@ -27,6 +27,7 @@ class Store extends Public_Controller
 		$this->load->helper('date');
 		
 		$this->template->append_metadata(css('store.css', 'store'))
+						->append_metadata(css('icons.css', 'store'))
 						->append_metadata(js('store.js', 'store'));
 	}
 
