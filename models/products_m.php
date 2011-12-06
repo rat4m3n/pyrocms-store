@@ -32,14 +32,10 @@ class Products_m extends MY_Model {
 		$this->data['slug'] = str_replace(' ', '-', $this->data['name']);
 		
 		if ( ! ($new_image_id == 0 ) ) { 
-
 			$product = $this->get_product($products_id);
-				
 			$this->images_m->delete_image($product->images_id, $this->images_path);// remove from files table
-
-			$this->data['images_id'] = $new_image_id; 
+			$this->data['images_id'] = $new_image_id; 		
 		}
-				
 		return $this->db->where('products_id', $products_id)->update($this->_table, $this->data);		
 	}
 	
@@ -49,8 +45,7 @@ class Products_m extends MY_Model {
 		array_pop($this->data);// remove the submit button field
 		unset($this->data['userfile']);
 		$this->data['slug'] = str_replace(' ', '-', $this->data['name']);
-		
-		if ($new_image_id) { $this->data['images_id'] = $new_image_id; }
+		$this->data['images_id'] = $new_image_id; 
 	
 		return $this->db->insert($this->_table, $this->data) ? $this->db->insert_id() : false;  
 	}

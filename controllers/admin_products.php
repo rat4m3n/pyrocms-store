@@ -53,7 +53,12 @@ class Admin_products extends Admin_Controller
 
 	// tack on the individual images here (if any)
 		foreach ($products as $product){
-
+			
+			$category = $this->categories_m->get_category_name($product->categories_id);
+			if($category) { 
+				$product->category = $category;
+			}
+			
 			$image = $this->images_m->get_image($product->images_id); 	
 							
 			if($image){
@@ -61,18 +66,14 @@ class Admin_products extends Admin_Controller
 				$this->images_m->create_thumb($source_image_path);								
 				$output = '<a href="uploads/store/products/' . $image->filename;
 				$output .= '" rel="cbox_images" class="product_images';// for use with colorbox 
-				$output .= '" >';
+				$output .= '" title="'. ucfirst($product->name);
+				$output .=  '" >';
 				$output .= '<img class="products" src="uploads/store/products/' . $image->name . '_thumb' . $image->extension; 
 				$output .= '" alt="' . $image->name;
 				$output .= '" /></a>';
 				$product->image = $output;
 			}	
 			
-			$category = $this->categories_m->get_category_name($product->categories_id);
-			if($category) { 
-				$product->category = $category;
-			
-			}
 		}
 
 		$this->data = array(
@@ -112,13 +113,12 @@ class Admin_products extends Admin_Controller
 				$this->session->set_flashdata(array('error'=> lang('store_product_add_error')));
 			}
 		}
-		else
-		{
+
 			$this->data = array( 'categories' => $this->products_m->make_categories_dropdown(0) );
 			$this->template
 				->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
 				->build('admin/products/add', $this->data);						
-		}
+		
 	}// end add()
 
 	

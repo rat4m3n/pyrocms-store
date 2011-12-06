@@ -75,7 +75,7 @@ class Store extends Public_Controller
 						
 						$image = $this->images_m->get_image($product->images_id);
 						if($image){ 
-							$this->images_m->front_image_resize('uploads/store/products/', $image, 150, 120);	
+							$this->images_m->front_image_resize('uploads/store/products/', $image, "", 150, 120);	
 							$product->image = $image;
 						}		
 					}
@@ -90,7 +90,7 @@ class Store extends Public_Controller
 				if($product){
 					$image = $this->images_m->get_image($product->images_id);
 					if($image){ 
-						//$this->images_m->front_image_resize('uploads/store/products/', $image, 150, 120);	
+						$this->images_m->front_image_resize('uploads/store/products/', $image, "_large", 400, 300);	
 						$product->image = $image;
 					}						
 					$this->data = array( 'product' =>	$product );

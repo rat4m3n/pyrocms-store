@@ -20,7 +20,7 @@
 			<?php if(isset($product->image)) : ?>
 				<?php $name = $product->image->name; $id = $product->image->id; 
 						$extension = $product->image->extension; ?>			
-				<img src="<?=base_url();?>uploads/store/products/<?=$name . $extension;?>" alt="<?php echo $product->name; ?>" />
+				<img src="<?=base_url();?>uploads/store/products/<?=$name . $id. '_large' . $extension;?>" alt="<?php echo $product->name; ?>" />
 			<?php endif; ?>				
 			</div>
 			<div><p><?php echo lang('store_product_add_html'). " : ";?></p>

@@ -93,11 +93,11 @@ class Images_m extends MY_Model {
 
 
 
-	public function front_image_resize($source_image_path, $image, $width=75, $height=50){
+	public function front_image_resize($source_image_path, $image, $suffix="", $width=75, $height=50){
 		
 		$resize_config['image_library'] = 'gd2';
 		$resize_config['source_image']	= $source_image_path . $image->filename;
-		$resize_config['new_image'] = $source_image_path . $image->name . $image->id. $image->extension;
+		$resize_config['new_image'] = $source_image_path . $image->name . $image->id. $suffix. $image->extension;
 		$resize_config['create_thumb'] = FALSE;
 		$resize_config['maintain_ratio'] = TRUE;
 		$resize_config['width']	= $width;		
