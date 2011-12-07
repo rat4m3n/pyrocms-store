@@ -222,7 +222,7 @@ div#show_cart div#cart_controls_checkout{
 
 div#show_cart div#cart_controls_checkout > form > #cart_control_checkout{
 	display: inline-block;
-	float: left;
+	float: right;
 	background: none;
 	border: 0;
 	margin: 0;
@@ -232,7 +232,7 @@ div#show_cart div#cart_controls_checkout > form > #cart_control_checkout{
 
 div#show_cart div#cart_controls_checkout > form > #cart_control_paypal{
 	display: inline-block;
-	float: left;
+	float: right;
 	border: 0;
 	margin: 0px 5px 0px 0px;
 	padding: 0;

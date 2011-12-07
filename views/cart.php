@@ -53,8 +53,8 @@
 		</div>
 		<div id="cart_controls_checkout">
 			<?php echo form_open('/store/checkout_cart/'); ?>
-			<?php echo form_dropdown('gateway', array('paypal' => 'paypal','authorize' => 'authorize','twoco' => 'twoco'),'paypal','id="cart_control_paypal"'); ?>
 			<?php echo form_submit('', '','id="cart_control_checkout"'); ?>
+			<?php echo form_dropdown('gateway', array('paypal' => 'paypal','authorize' => 'authorize','twoco' => 'twoco'),'paypal','id="cart_control_paypal"'); ?>
 			<?php echo form_close(); ?>
 		</div>
         <div class="divider"></div>
