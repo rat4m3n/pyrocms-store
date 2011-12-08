@@ -119,11 +119,11 @@ background: url('./images/login.png') no-repeat center center;
 background: url('./images/support.png') no-repeat center center;
 }
 
-#vtab fieldset li { margin: 40px 0px 40px 40px; }
+#vtab fieldset li { margin: 40px 0px 40px 0px; }
 #vtab fieldset li label { width: 250px; display: inline-block; margin-bottom: 0px; }
 
 
-#vtab fieldset { padding: 0px 0px 20px 0px; margin-bottom: 0px; border-radius: 0.5em;
+#vtab fieldset { padding: 0px 40px 20px 40px; margin-bottom: 0px; border-radius: 0.5em;
 border-color: lightgray; }
 #vtab span { margin-right: 10px;  }
 #vtab hr { margin: 15px 0px 35px 0px; border: 1px solid lightgray; }
