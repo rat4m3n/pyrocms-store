@@ -88,7 +88,6 @@ clear: both; }
     margin: auto 0;
     padding: 0;
     position: relative;
-   
 }
 #vtab > div {
     background-color: #fafafa;
@@ -96,8 +95,12 @@ clear: both; }
     border: 1px solid #ddd;
     min-height: 500px;
     padding: 12px;
+    padding-bottom: 20px; 
     position: relative;
     z-index: 9;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
 }
 #vtab > div > h4 {
     border-bottom: 1px solid lightgrey;
@@ -116,11 +119,11 @@ background: url('./images/login.png') no-repeat center center;
 background: url('./images/support.png') no-repeat center center;
 }
 
-#vtab fieldset li { margin: 40px 0px 40px 10px; }
+#vtab fieldset li { margin: 40px 0px 40px 40px; }
 #vtab fieldset li label { width: 250px; display: inline-block; margin-bottom: 0px; }
 
 
-#vtab fieldset { padding: 0px 20px 20px 20px; margin-bottom: 0px; border-radius: 0.5em;
+#vtab fieldset { padding: 0px 0px 20px 0px; margin-bottom: 0px; border-radius: 0.5em;
 border-color: lightgray; }
 #vtab span { margin-right: 10px;  }
 #vtab hr { margin: 15px 0px 35px 0px; border: 1px solid lightgray; }
