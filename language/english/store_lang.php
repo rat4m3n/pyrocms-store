@@ -43,7 +43,7 @@ $lang['store_tab_additional_info']					= 'Additional Information';
 // Fields
 $lang['store_settings_name']						= 'Store name';
 $lang['store_settings_email']						= 'Store default email';
-$lang['store_settings_additional_emails']			= 'Additional emails (Separate with ",")';
+$lang['store_settings_additional_emails']			= 'Additional emails (comma-separated)';
 $lang['store_settings_currency']					= 'Default currency';
 $lang['store_settings_item_per_page']				= 'Items per Page';
 $lang['store_settings_show_with_tax']				= 'Show with Tax';

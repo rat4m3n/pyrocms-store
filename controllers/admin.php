@@ -25,6 +25,7 @@ class Admin extends Admin_Controller
 		// We'll set the partials and metadata here since they're used everywhere
 		$this->template->set_partial('shortcuts', 'admin/partials/shortcuts')
 						->append_metadata(js('admin.js', 'store'))
+						->append_metadata(js('stickyfloat.js', 'store'))
 						->append_metadata(css('admin.css', 'store'));
 	}
 	

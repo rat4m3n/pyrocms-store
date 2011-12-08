@@ -39,8 +39,8 @@
 	
 		$html .= '	</div>'."\n";
 		$html .= '	<div id="widget_cart_controls">'."\n";
-		$html .= '		'.anchor('/store/show_cart/','&nbsp;','class="" id="widget_button_details"')."\n";
-		$html .= '		'.form_submit('','','id="widget_button_update"')."\n";
+		$html .= '		'.anchor('/store/show_cart/',$this->lang->line('store_button_widget_cart_details'),'class="button" id="widget_button_details"')."\n";
+		$html .= '		'.form_submit('',$this->lang->line('store_button_widget_cart_update'),'id="widget_button_update"')."\n";
 		$html .= '	</div>'."\n";
 		$html .= '	'.form_close()."\n";
 	}
