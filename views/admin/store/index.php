@@ -22,7 +22,7 @@ $(document).ready(function() {
 		var index = $items.index($(this));
 
 	 	if($(document).scrollTop() > ($('#menu').height()/2)){
-    		$('body,html').animate({ scrollTop: 0 }, 600, function(){ 
+    		$('body,html').animate({ scrollTop: 0 }, 800, function(){ 
 				$('#vtab>div').fadeOut(0).eq(index).fadeIn(0);    				
     		});
     		
