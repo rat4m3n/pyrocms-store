@@ -197,16 +197,61 @@ div#show_cart > form > div#cart_footer > div#cart_footer_text_total{
 	float: left;
 }
 
-div#show_cart > form > div#cart_controls{
-	width: 100%;
+div#show_cart div#cart_controls_update{
+	display: inline-block;
+	float: left;
+	width: 50%;
 	text-align: right;
-	clear: both;
 }
 
-div#show_cart > form > div#cart_controls > div#cart_control_paypal{
+div#show_cart div#cart_controls_update > #cart_control_update{
 	display: inline-block;
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	padding: 1px 0 1px 25px; background: url(../img/icons/arrow-circle-double.png) no-repeat 0px 50%;
 }
 
-div#show_cart > form > div#cart_controls > div#cart_control_update{
+div#show_cart div#cart_controls_checkout{
 	display: inline-block;
+	float: left;
+	width: 50%;
+	text-align: right;
+}
+
+div#show_cart div#cart_controls_checkout > form > #cart_control_checkout{
+	display: inline-block;
+	float: right;
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	padding: 1px 0 1px 25px; background: url(../img/icons/shopping-basket--arrow.png) no-repeat 0px 50%;
+}
+
+div#show_cart div#cart_controls_checkout > form > #cart_control_paypal{
+	display: inline-block;
+	float: right;
+	border: 0;
+	margin: 0px 5px 0px 0px;
+	padding: 0;
+}
+
+div#widget_cart_controls #widget_button_details{
+	display: inline-block;
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	padding: 1px 0 1px 25px; background: url(../img/icons/shopping-basket--arrow.png) no-repeat 0px 50%;
+}
+
+div#widget_cart_controls #widget_button_update{
+	display: inline-block;
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	padding: 1px 0 1px 25px; background: url(../img/icons/arrow-circle-double.png) no-repeat 0px 50%;
 }
