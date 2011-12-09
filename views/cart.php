@@ -47,14 +47,17 @@
 			<div id="cart_footer_text_total"><?php echo $this->cart->format_number($this->cart->total()); ?></div>
 		</div>
 		
-		<div id="cart_controls">
-			<?php echo form_submit('', $this->lang->line('store_button_cart_update'),'id="cart_control_update"'); ?>
-			<?php echo form_close(); ?>
-			<?php echo form_open('/store/checkout_cart/'); ?>
-			<?php echo form_dropdown('gateway', array('paypal' => 'paypal','authorize' => 'authorize','twoco' => 'twoco'),'paypal'); ?>
-			<?php echo form_submit('', $this->lang->line('store_button_cart_checkout'),'id="cart_control_checkout"'); ?>
+		<div id="cart_controls_update">
+			<?php echo form_submit('', '','id="cart_control_update"'); ?>
 			<?php echo form_close(); ?>
 		</div>
+		<div id="cart_controls_checkout">
+			<?php echo form_open('/store/checkout_cart/'); ?>
+			<?php echo form_submit('', '','id="cart_control_checkout"'); ?>
+			<?php echo form_dropdown('gateway', array('paypal' => 'paypal','authorize' => 'authorize','twoco' => 'twoco'),'paypal','id="cart_control_paypal"'); ?>
+			<?php echo form_close(); ?>
+		</div>
+        <div class="divider"></div>
 	<?php } else { ?>
 		<?php echo $this->lang->line('store_label_cart_empty'); ?>
 	<?php } ?>
