@@ -7,9 +7,9 @@
  * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
-	$html='<link href="/'.SHARED_ADDONPATH.'modules/store/css/widget_cart.css" type="text/css" rel="stylesheet" />';
-	$html.='<script type="text/javascript" src="/'.SHARED_ADDONPATH.'modules/store/js/widget_cart.js"></script>';
-	$html.='<div id="widget_shopping_cart">';
+	$html='<link href="/'.SHARED_ADDONPATH.'modules/store/css/widget_store_cart.css" type="text/css" rel="stylesheet" />';
+	$html.='<script type="text/javascript" src="/'.SHARED_ADDONPATH.'modules/store/js/widget_store_cart.js"></script>';
+	$html.='<div id="widget_store_cart">';
 	if($this->cart->contents())
 	{
 		$html .= form_open('/store/update_cart/')."\n";
