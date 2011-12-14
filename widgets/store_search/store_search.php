@@ -7,17 +7,17 @@
  * @package 	pyrocms-store
  * @subpackage 	Store Module
 **/
-class Widget_Cart extends Widgets {
+class Widget_Store_search extends Widgets {
 
 	public $title = array(
-		'en' => 'Shopping Cart',
-		'nl' => 'Winkel mand',
-		'de' => 'Shopping Cart'
+		'en' => 'Store Search Engine Widget',
+		'nl' => 'Winkel Zoekmachine Widget',
+		'de' => 'Store Search Engine Widget'
 	);
 	public $description	= array(
-		'en' => 'Display the Shopping Cart',
-		'nl' => 'Toon de Winkel mand',
-		'de' => 'Zeigen Sie die Shopping Cart'
+		'en' => 'Display the Store Search Engine',
+		'nl' => 'Toon de Zoekmachine',
+		'de' => 'Zeigen Sie die Store Search Engine'
 	);
 	public $author		= 'Jaap Jolman - Kevin Meier - Rudolph Arthur Hernandez - Gary Hussey';
 	public $website		= 'http://www.odin-ict.nl/';
@@ -29,8 +29,6 @@ class Widget_Cart extends Widgets {
 	public function __construct()
 	{
 		parent::__construct();
-		
-		$this->load->library('cart');
 	}
 	
 	public function form($options)
